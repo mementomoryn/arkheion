@@ -1,12 +1,12 @@
 import os
 from utils import run_command
 
-options = os.getenv['COMMANDS']
-track_id = os.getenv['TRACK_ID']
-track_url = os.getenv['TRACK_URL']
-lastfm_url = os.getenv['LASTFM_URL']
-quality = os.getenv['QUALITY']
-codec = os.getenv['CODEC']
+options = os.environ["COMMANDS"]
+track_id = os.environ["TRACK_ID"]
+track_url = os.environ["TRACK_URL"]
+lastfm_url = os.environ["LASTFM_URL"]
+quality = os.environ["QUALITY"]
+codec = os.environ["CODEC"]
 
 command = [
     'python',
