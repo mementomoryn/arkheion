@@ -28,7 +28,7 @@ match options:
 
 if quality != 'default':
     command.append('--quality')
-    command.append(int(quality))
+    command.append(quality)
         
 if codec != 'original':
     command.append('--codec')
