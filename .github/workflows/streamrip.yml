@@ -1,5 +1,5 @@
 name: Streamrip
-# Supported sources: TIDAL, Qobuz, Deezer, and SoundCloud
+# Supported sources: Qobuz, Deezer
 on:
   workflow_dispatch:
     inputs:
@@ -10,7 +10,6 @@ on:
         options:
           - id
           - url
-          - search
           - lastfm
       track_id:
         description: Set tracks ID to download (required for 'id' command)
@@ -21,42 +20,21 @@ on:
         description: Set albums/tracks link to download (required for 'url' command)
         required: false
         type: string
-      source_query:
-        description: Select streaming source to search (required for 'search' command)
-        required: false
-        type: choice
-        options:
-          - qobuz
-          - tidal
-          - deezer
-          - soundcloud
-      type_query:
-        description: Select type to search (required for 'search' command)
-        required: false
-        type: choice
-        options:
-          - track
-          - album
-          - playlist
-      search_query:
-        description: Select tracks query to search (required for 'search' command)
-        required: false
-        type: string
       lastfm_url:
         description: Set LastFM playlist link (required for 'lastfm' command)
         required: false
         type: string
       track_quality:
-        description: Select tracks quality (will fallback to nearest supported quality)
+        description: Select tracks quality (quality depends on the source)
         required: true
         type: choice
         options:
           # check https://github.com/nathom/streamrip/wiki/Quality-IDs for supported quality per sources
-          - hi-res # 24 bit, ≤ 192 kHz
-          - hi-fi # 24 bit, ≤ 96 kHz
-          - cdq # 16 bit, 44.1 kHz
-          - great # 320 kbps
-          - good # 128 kbps
+          - 4 # 24 bit, ≤ 192 kHz (Hi-Res)
+          - 3 # 24 bit, ≤ 96 kHz (Hi-Fi / MQA)
+          - 2 # 16 bit, 44.1 kHz (CD Quality / Lossless)
+          - 1 # 320 kbps (Great)
+          - 0 # 128 kbps (Good)
           - default # use config
       track_codec:
         description: Select tracks codec
@@ -85,7 +63,7 @@ jobs:
       - name: Verify manual inputs
         id: verify
         run: |
-          if [[ ${{ inputs.command }} == "id" && -n "${{ inputs.track_id }}" ]] || [[ ${{ inputs.command }} == "url"  && -n "${{ inputs.track_url }}" ]] || [[ ${{ inputs.command }} == "search"  && (-n "${{ inputs.source_query }}" || -n "${{ inputs.type_query }}" || -n "${{ inputs.search_query }}") ]] || [[ ${{ inputs.command }} == "lastfm"  && -n "${{ inputs.lastfm_url }}" ]]; then
+          if [[ ${{ inputs.command }} == "id" && -n "${{ inputs.track_id }}" ]] || [[ ${{ inputs.command }} == "url"  && -n "${{ inputs.track_url }}" ]] || [[ ${{ inputs.command }} == "lastfm"  && -n "${{ inputs.lastfm_url }}" ]]; then
             echo "Inputs missing to run '${{ inputs.command }}' command"
             echo "run=false" >> $GITHUB_OUTPUT
           else
@@ -111,11 +89,25 @@ jobs:
           COMMANDS: ${{ inputs.command }}
           TRACK_ID: ${{ inputs.track_id }}
           TRACK_URL: ${{ inputs.track_url }}
-          SOURCES: ${{ inputs.source_query }}
-          TYPES: ${{ inputs.type_query }}
-          QUERY: ${{ inputs.search_query }}
           LASTFM_URL: ${{ inputs.lastfm_url }}
           QUALITY: ${{ inputs.track_quality }}
           CODEC: ${{ inputs.track_codec }}
         run: |
           python streamrip.py
+      - name: Generate datetime codes
+        id: dt-codes
+        run: |
+          echo "dtcode=$(date +%N%s | sed 's/0//g' | cut --complement -c 5-10 | cut -c 3-7)" >> $GITHUB_OUTPUT
+      - name: Upload downloads as artifact
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: streamrip-downloads-${{ steps.dt-codes.outputs.dtcode }}
+          path: music
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: true
+      - name: Print artifact info
+        run: |
+          echo "id = ${{ steps.artifact.outputs.artifact-id }}"
+          echo "url = ${{ steps.artifact.outputs.artifact-url }}"

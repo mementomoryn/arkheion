@@ -2,35 +2,33 @@ import os
 from utils import run_command
 
 options = os.getenv['COMMANDS']
+track_id = os.getenv['TRACK_ID']
+track_url = os.getenv['TRACK_URL']
+lastfm_url = os.getenv['LASTFM_URL']
+quality = os.getenv['QUALITY']
+codec = os.getenv['CODEC']
 
-streamrip = [
+command = [
     'python',
     '-m',
     'rip',
+    '--config-path',
+    'configs/streamrip.toml',
     options
 ]
 
 match options:
     case 'id':
-        streamrip.append(os.getenv['TRACK_ID'])
+        command.append(track_id)
     case 'url':
-        streamrip.append(os.getenv['TRACK_URL'])
-    case 'search':
-        streamrip.append(os.getenv['SOURCES'])
-        streamrip.append(os.getenv['TYPES'])
-        streamrip.append(os.getenv['QUERY'])
+        command.append(track_url)
     case 'lastfm':
-        streamrip.append(os.getenv['LASTFM_URL'])
+        command.append(lastfm_url)
 
-if options != 'search':
-    quality = os.getenv['QUALITY']
-    if quality == 'default':
-        streamrip.append(quality)
+if quality != 'default':
+    command.append(int(quality))
         
-    codec = os.getenv['CODEC']
-    if codec == 'original':
-        streamrip.append(codec)
+if codec != 'original':
+    command.append(codec)
         
-    run_command(streamrip, 'print')
-else:
-    output = run_command(streamrip, 'return', 60)
+run_command(command, 'print')
