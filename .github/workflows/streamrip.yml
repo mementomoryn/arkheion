@@ -1,0 +1,121 @@
+name: Streamrip
+# Supported sources: TIDAL, Qobuz, Deezer, and SoundCloud
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: Choose Streamrip command
+        required: true
+        type: choice
+        options:
+          - id
+          - url
+          - search
+          - lastfm
+      track_id:
+        description: Set tracks ID to download (required for 'id' command)
+        required: false
+        type: string
+      track_url:
+        # seperate URL with {,} to download multiple
+        description: Set albums/tracks link to download (required for 'url' command)
+        required: false
+        type: string
+      source_query:
+        description: Select streaming source to search (required for 'search' command)
+        required: false
+        type: choice
+        options:
+          - qobuz
+          - tidal
+          - deezer
+          - soundcloud
+      type_query:
+        description: Select type to search (required for 'search' command)
+        required: false
+        type: choice
+        options:
+          - track
+          - album
+          - playlist
+      search_query:
+        description: Select tracks query to search (required for 'search' command)
+        required: false
+        type: string
+      lastfm_url:
+        description: Set LastFM playlist link (required for 'lastfm' command)
+        required: false
+        type: string
+      track_quality:
+        description: Select tracks quality (will fallback to nearest supported quality)
+        required: true
+        type: choice
+        options:
+          # check https://github.com/nathom/streamrip/wiki/Quality-IDs for supported quality per sources
+          - hi-res # 24 bit, ≤ 192 kHz
+          - hi-fi # 24 bit, ≤ 96 kHz
+          - cdq # 16 bit, 44.1 kHz
+          - great # 320 kbps
+          - good # 128 kbps
+          - default # use config
+      track_codec:
+        description: Select tracks codec
+        required: true
+        type: choice
+        options:
+          - original
+          - flac
+          - alac
+          - ogg
+          - aac
+          - mp3
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  verify:
+    name: Verify manual inputs are sufficient
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.verify.outputs.run }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify manual inputs
+        id: verify
+        run: |
+          if [[ ${{ inputs.command }} == "id" && -n "${{ inputs.track_id }}" ]] || [[ ${{ inputs.command }} == "url"  && -n "${{ inputs.track_url }}" ]] || [[ ${{ inputs.command }} == "search"  && (-n "${{ inputs.source_query }}" || -n "${{ inputs.type_query }}" || -n "${{ inputs.search_query }}") ]] || [[ ${{ inputs.command }} == "lastfm"  && -n "${{ inputs.lastfm_url }}" ]]; then
+            echo "Inputs missing to run '${{ inputs.command }}' command"
+            echo "run=false" >> $GITHUB_OUTPUT
+          else
+            echo "run=true" >> $GITHUB_OUTPUT
+          fi
+  downloads:
+    runs-on: ubuntu-latest
+    needs: verify
+    if: needs.verify.outputs.run == 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.13'
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade streamrip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Run command
+        env:
+          COMMANDS: ${{ inputs.command }}
+          TRACK_ID: ${{ inputs.track_id }}
+          TRACK_URL: ${{ inputs.track_url }}
+          SOURCES: ${{ inputs.source_query }}
+          TYPES: ${{ inputs.type_query }}
+          QUERY: ${{ inputs.search_query }}
+          LASTFM_URL: ${{ inputs.lastfm_url }}
+          QUALITY: ${{ inputs.track_quality }}
+          CODEC: ${{ inputs.track_codec }}
+        run: |
+          python streamrip.py
