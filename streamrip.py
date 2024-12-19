@@ -34,4 +34,4 @@ if codec != 'original':
     command.append('--codec')
     command.append(codec)
         
-subprocess.run(command, 'print').check_returncode()
+subprocess.run(command).check_returncode()
