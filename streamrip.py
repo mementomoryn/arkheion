@@ -26,9 +26,11 @@ match options:
         command.append(lastfm_url)
 
 if quality != 'default':
+    command.append('--quality')
     command.append(quality)
         
 if codec != 'original':
+    command.append('--codec')
     command.append(codec)
         
 run_command(command, 'print')
