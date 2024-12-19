@@ -65,9 +65,9 @@ jobs:
         run: |
           if [[ ${{ inputs.command }} == "id" && -n "${{ inputs.track_id }}" ]] || [[ ${{ inputs.command }} == "url"  && -n "${{ inputs.track_url }}" ]] || [[ ${{ inputs.command }} == "lastfm"  && -n "${{ inputs.lastfm_url }}" ]]; then
             echo "Inputs missing to run '${{ inputs.command }}' command"
-            echo "run=false" >> $GITHUB_OUTPUT
-          else
             echo "run=true" >> $GITHUB_OUTPUT
+          else
+            echo "run=false" >> $GITHUB_OUTPUT
           fi
   downloads:
     runs-on: ubuntu-latest
