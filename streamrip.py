@@ -27,10 +27,10 @@ match options:
 
 if quality != 'default':
     command.append('--quality')
-    command.append(quality)
+    command.append(int(quality))
         
 if codec != 'original':
     command.append('--codec')
     command.append(codec)
         
-run_command(command, 'print')
+subprocess.run(command, 'print').check_returncode()
