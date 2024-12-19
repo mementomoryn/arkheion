@@ -26,7 +26,7 @@ match options:
         command.append(lastfm_url)
 
 if quality != 'default':
-    command.append(int(quality))
+    command.append(quality)
         
 if codec != 'original':
     command.append(codec)
