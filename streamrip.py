@@ -11,7 +11,7 @@ codec = os.environ["CODEC"]
 command = [
     'python',
     '-m',
-    'rip',
+    'streamrip',
     '--config-path',
     'configs/streamrip.toml',
     options
