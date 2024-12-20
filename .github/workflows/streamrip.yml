@@ -94,7 +94,7 @@ jobs:
           LASTFM_URL: ${{ inputs.lastfm_url }}
           QUALITY: ${{ inputs.track_quality }}
           CODEC: ${{ inputs.track_codec }}
-        shell: cmd
+        shell: bash
         run: |
           python -m streamrip --help
       - name: Generate datetime codes
