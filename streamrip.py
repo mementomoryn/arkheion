@@ -33,4 +33,4 @@ if codec != 'original':
 
 print(f"command: {command}")
         
-os.system(command.split(" "))
+os.system(" ".join(command))
