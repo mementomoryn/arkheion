@@ -33,4 +33,4 @@ if codec != 'original':
 
 print(f"command: {command}")
         
-run_command(command, True)
+os.system(command.split(" "))
