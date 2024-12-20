@@ -63,6 +63,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify manual inputs
         id: verify
+        shell: bash
         run: |
           if [[ ${{ inputs.command }} == "id" && -n "${{ inputs.track_id }}" ]] || [[ ${{ inputs.command }} == "url"  && -n "${{ inputs.track_url }}" ]] || [[ ${{ inputs.command }} == "lastfm"  && -n "${{ inputs.lastfm_url }}" ]]; then
             echo "run=true" >> $GITHUB_OUTPUT
@@ -93,10 +94,12 @@ jobs:
           LASTFM_URL: ${{ inputs.lastfm_url }}
           QUALITY: ${{ inputs.track_quality }}
           CODEC: ${{ inputs.track_codec }}
+        shell: cmd
         run: |
           python -m streamrip --help
       - name: Generate datetime codes
         id: dt-codes
+        shell: bash
         run: |
           echo "dtcode=$(date +%N%s | sed 's/0//g' | cut --complement -c 5-10 | cut -c 3-7)" >> $GITHUB_OUTPUT
       - name: Upload downloads as artifact
@@ -109,6 +112,7 @@ jobs:
           retention-days: 7
           include-hidden-files: true
       - name: Print artifact info
+        shell: bash
         run: |
           echo "id = ${{ steps.artifact.outputs.artifact-id }}"
           echo "url = ${{ steps.artifact.outputs.artifact-url }}"
