@@ -9,11 +9,9 @@ quality = os.environ["QUALITY"]
 codec = os.environ["CODEC"]
 
 command = [
-    'python',
-    '-m',
-    'streamrip',
+    'rip',
     '--config-path',
-    'configs/streamrip.toml',
+    'configs\streamrip.toml',
     options
 ]
 
