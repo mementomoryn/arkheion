@@ -1,5 +1,4 @@
 import os
-import subprocess
 from utils import run_command
 
 options = os.environ["COMMANDS"]
@@ -34,6 +33,6 @@ if codec != 'original':
     command.append('--codec')
     command.append(codec)
 
-print(f"run command: {command}")
+print(f"command: {command}")
         
-subprocess.run(command, shell=True).check_returncode()
+run_command(command, True)
