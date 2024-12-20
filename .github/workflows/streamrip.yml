@@ -11,20 +11,12 @@ on:
           - id
           - url
           - lastfm
-      track_id:
-        description: Set tracks ID to download (required for 'id' command)
-        required: false
+          - config reset
+      query:
+        description: Set tracks query to download
+        required: true
         type: string
-      track_url:
-        # seperate URL with space to download multiple
-        description: Set albums/tracks link to download (required for 'url' command)
-        required: false
-        type: string
-      lastfm_url:
-        description: Set LastFM playlist link (required for 'lastfm' command)
-        required: false
-        type: string
-      track_quality:
+      quality:
         description: Select tracks quality (quality depends on the source)
         required: false
         type: choice
@@ -37,7 +29,7 @@ on:
           - 0 # 128 kbps (Good)
           - config
         default: config
-      track_codec:
+      codec:
         description: Select tracks codec
         required: false
         type: choice
@@ -55,26 +47,8 @@ permissions:
   contents: read
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    outputs:
-      run: ${{ steps.verify.outputs.run }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Verify manual inputs
-        id: verify
-        shell: bash
-        run: |
-          if [[ ${{ inputs.command }} == "id" && -n "${{ inputs.track_id }}" ]] || [[ ${{ inputs.command }} == "url"  && -n "${{ inputs.track_url }}" ]] || [[ ${{ inputs.command }} == "lastfm"  && -n "${{ inputs.lastfm_url }}" ]]; then
-            echo "run=true" >> $GITHUB_OUTPUT
-          else
-            echo "Inputs missing to run '${{ inputs.command }}' command"
-            echo "run=false" >> $GITHUB_OUTPUT
-          fi
   downloads:
     runs-on: windows-latest
-    needs: verify
-    if: needs.verify.outputs.run == 'true'
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -87,17 +61,21 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install --upgrade streamrip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Set up FFmpeg
+        id: setup-ffmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        with:
+          linking-type: shared
+          ffmpeg-version: release
       - name: Run command
         env:
           COMMANDS: ${{ inputs.command }}
-          TRACK_ID: ${{ inputs.track_id }}
-          TRACK_URL: ${{ inputs.track_url }}
-          LASTFM_URL: ${{ inputs.lastfm_url }}
-          QUALITY: ${{ inputs.track_quality }}
-          CODEC: ${{ inputs.track_codec }}
+          TRACK_ID: ${{ inputs.query }}
+          QUALITY: ${{ inputs.quality }}
+          CODEC: ${{ inputs.codec }}
         shell: cmd
         run: |
-          python streamrip.py
+          python streamrip_run.py
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
@@ -115,5 +93,5 @@ jobs:
       - name: Print artifact info
         shell: bash
         run: |
-          echo "id = ${{ steps.artifact.outputs.artifact-id }}"
-          echo "url = ${{ steps.artifact.outputs.artifact-url }}"
+          echo "[INFO] artifact-id: ${{ steps.artifact.outputs.artifact-id }}"
+          echo "[INFO] artifact-url: ${{ steps.artifact.outputs.artifact-url }}"
