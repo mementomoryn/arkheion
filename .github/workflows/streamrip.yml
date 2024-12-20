@@ -56,7 +56,7 @@ permissions:
 
 jobs:
   verify:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     outputs:
       run: ${{ steps.verify.outputs.run }}
     steps:
@@ -72,7 +72,7 @@ jobs:
             echo "run=false" >> $GITHUB_OUTPUT
           fi
   downloads:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: verify
     if: needs.verify.outputs.run == 'true'
     steps:
@@ -94,9 +94,10 @@ jobs:
           LASTFM_URL: ${{ inputs.lastfm_url }}
           QUALITY: ${{ inputs.track_quality }}
           CODEC: ${{ inputs.track_codec }}
-        shell: bash
+        shell: cmd
         run: |
           python -m streamrip --help
+          rip --help
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
