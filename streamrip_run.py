@@ -1,8 +1,5 @@
 import os
-import asyncio
 from utils import run_command
-
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 select = os.environ["COMMANDS"]
 query = os.environ["QUERY"]
