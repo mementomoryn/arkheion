@@ -11,17 +11,8 @@ codec = os.environ["CODEC"]
 command = [
     'rip',
     '--config-path',
-    'configs\streamrip.toml',
-    options
+    'configs\\streamrip.toml'
 ]
-
-match options:
-    case 'id':
-        command.append(track_id)
-    case 'url':
-        command.append(track_url)
-    case 'lastfm':
-        command.append(lastfm_url)
 
 if quality != 'default':
     command.append('--quality')
@@ -30,6 +21,16 @@ if quality != 'default':
 if codec != 'original':
     command.append('--codec')
     command.append(codec)
+
+command.append(options)
+
+match options:
+    case 'id':
+        command.append(track_id)
+    case 'url':
+        command.append(track_url)
+    case 'lastfm':
+        command.append(lastfm_url)
 
 print(f"command: {command}")
         
