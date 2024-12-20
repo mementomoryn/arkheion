@@ -19,7 +19,7 @@ def download(link, out, headers=None):
                 f.write(chunk)
                 
 def run_command(command: list[str], output: bool):
-    cmd = subprocess.run(command, capture_output=True, env=os.environ.copy(), shell=True)
+    cmd = subprocess.run(command, capture_output=True, env=os.environ.copy())
 
     try:
         cmd.check_returncode()
