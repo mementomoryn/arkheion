@@ -79,7 +79,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.13'
+          python-version: '3.12'
       - name: Install python dependencies
         run: |
           python -m pip install --upgrade pip
@@ -94,7 +94,7 @@ jobs:
           QUALITY: ${{ inputs.track_quality }}
           CODEC: ${{ inputs.track_codec }}
         run: |
-          python -m streamrip
+          python -m streamrip --help
       - name: Generate datetime codes
         id: dt-codes
         run: |
