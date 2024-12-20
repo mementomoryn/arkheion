@@ -159,7 +159,7 @@ exclude = []
 add_singles_to_folder = true
 # Available keys: "albumartist", "title", "year", "bit_depth", "sampling_rate",
 # "id", and "albumcomposer"
-folder_format = "{albumartist}/{album} ({year})"
+folder_format = "{albumartist}\\{album} ({year})"
 # Available keys: "tracknumber", "artist", "albumartist", "composer", "title",
 # and "albumcomposer", "explicit"
 track_format = "{artist} - {title}{explicit}"
