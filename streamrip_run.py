@@ -27,4 +27,4 @@ if select != 'config reset':
     
     print(f"[INFO] Downloading tracks/albums {select}: {query}, quality: {quality}, codec: {codec}")
 
-run_command(command)
+os.system(" ".join(command))
