@@ -16,7 +16,7 @@ on:
         required: false
         type: string
       track_url:
-        # seperate URL with {,} to download multiple
+        # seperate URL with space to download multiple
         description: Set albums/tracks link to download (required for 'url' command)
         required: false
         type: string
@@ -26,7 +26,7 @@ on:
         type: string
       track_quality:
         description: Select tracks quality (quality depends on the source)
-        required: true
+        required: false
         type: choice
         options:
           # check https://github.com/nathom/streamrip/wiki/Quality-IDs for supported quality per sources
@@ -35,18 +35,18 @@ on:
           - 2 # 16 bit, 44.1 kHz (CD Quality / Lossless)
           - 1 # 320 kbps (Great)
           - 0 # 128 kbps (Good)
-          - default # use config
+        default: config
       track_codec:
         description: Select tracks codec
-        required: true
+        required: false
         type: choice
         options:
-          - original
           - flac
           - alac
           - ogg
           - aac
           - mp3
+        default: original
 
 permissions:
   actions: write
