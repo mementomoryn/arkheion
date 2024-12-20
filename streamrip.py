@@ -16,7 +16,7 @@ command = [
 
 if quality != 'default':
     command.append('--quality')
-    command.append(quality)
+    command.append(int(quality))
         
 if codec != 'original':
     command.append('--codec')
