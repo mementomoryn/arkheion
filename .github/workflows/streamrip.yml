@@ -48,7 +48,7 @@ permissions:
 
 jobs:
   downloads:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -73,7 +73,7 @@ jobs:
           QUERY: ${{ inputs.query }}
           QUALITY: ${{ inputs.quality }}
           CODEC: ${{ inputs.codec }}
-        shell: cmd
+        shell: bash
         run: |
           python streamrip_run.py
       - name: Generate datetime codes
