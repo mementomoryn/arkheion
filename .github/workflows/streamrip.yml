@@ -94,7 +94,7 @@ jobs:
           QUALITY: ${{ inputs.track_quality }}
           CODEC: ${{ inputs.track_codec }}
         run: |
-          python -m pip --help
+          python -m pip list
       - name: Generate datetime codes
         id: dt-codes
         run: |
