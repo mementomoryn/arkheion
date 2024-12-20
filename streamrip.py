@@ -14,7 +14,7 @@ command = [
     'configs\\streamrip.toml'
 ]
 
-if quality != 'default':
+if quality != 'config':
     command.append('--quality')
     command.append(int(quality))
         
