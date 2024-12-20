@@ -18,8 +18,8 @@ def download(link, out, headers=None):
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
                 
-def run_command(command: list[str], output: str, timeout: float = None):
-    cmd = subprocess.run(command, capture_output=True, env=os.environ.copy(), timeout=timeout)
+def run_command(command: list[str], output: str):
+    cmd = subprocess.run(command, capture_output=True, env=os.environ.copy())
 
     try:
         cmd.check_returncode()
