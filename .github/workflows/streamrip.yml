@@ -97,8 +97,7 @@ jobs:
           CODEC: ${{ inputs.track_codec }}
         shell: cmd
         run: |
-          python -m streamrip --help
-          rip --help
+          python streamrip.py
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
