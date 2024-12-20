@@ -18,17 +18,14 @@ def download(link, out, headers=None):
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
                 
-def run_command(command: list[str], output: str):
+def run_command(command: list[str], output: bool):
     cmd = subprocess.run(command, capture_output=True, env=os.environ.copy())
 
     try:
         cmd.check_returncode()
     except subprocess.CompletedProcess:
-        match output:
-            case 'print':
-                print(cmd.stdout)
-            case 'return':
-                return cmd.stdout
+        if output is True:
+            print(cmd.stdout)
     except subprocess.SubprocessError:
         print(cmd.stderr)
         exit(1)
