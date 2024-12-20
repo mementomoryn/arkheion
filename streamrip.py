@@ -33,5 +33,7 @@ if quality != 'default':
 if codec != 'original':
     command.append('--codec')
     command.append(codec)
+
+print(f"run command: {command}")
         
 subprocess.run(command, shell=True).check_returncode()
