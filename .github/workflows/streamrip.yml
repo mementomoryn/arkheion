@@ -94,7 +94,7 @@ jobs:
           QUALITY: ${{ inputs.track_quality }}
           CODEC: ${{ inputs.track_codec }}
         run: |
-          python -m streamrip --help
+          python -m pip --help
       - name: Generate datetime codes
         id: dt-codes
         run: |
