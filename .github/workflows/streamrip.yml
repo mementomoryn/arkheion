@@ -36,8 +36,7 @@ on:
         options:
           - FLAC
           - ALAC
-          - OPUS
-          - VORBIS
+          - OGG
           - AAC
           - MP3
           - ORIGINAL
