@@ -31,6 +31,6 @@ else:
 
 run_command(command)
 
-if len(os.listdir("music")) == 0:
-    print("[ERROR] Downloads folder is empty")
+if os.path.exists("music") is False:
+    print("[ERROR] Downloads folder does not exist")
     exit(1)
