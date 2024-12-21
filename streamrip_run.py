@@ -12,19 +12,25 @@ command = [
     'configs/streamrip.toml'
 ]
 
-if select != 'config reset':
-    if quality != 'config':
+if select != 'CONFIG RESET':
+    if quality != 'AUTO':
         command.append('--quality')
         command.append(int(quality))
             
-    if codec != 'original':
+    if codec != 'ORIGINAL':
         command.append('--codec')
         command.append(codec)
 
-    command.append(select)
+    command.append(select.lower())
 
     command.append(query)
     
-    print(f"[INFO] Downloading tracks/albums {select}: {query}, quality: {quality}, codec: {codec}")
+    print(f"[INFO] Downloading tracks/albums from {select} ({query}):\nquality: {quality}\n codec: {codec}")
+else:
+    print("[INFO] Resetting `config.toml`...")
 
-os.system(" ".join(command))
+run_command(command)
+
+if len(os.listdir("music")) == 0:
+    print("[ERROR] Downloads folder is empty")
+    exit(1)
