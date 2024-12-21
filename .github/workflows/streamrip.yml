@@ -63,10 +63,10 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Set up FFmpeg
         id: setup-ffmpeg
-        uses: FedericoCarboni/setup-ffmpeg@v3.1
+        uses: AnimMouse/setup-ffmpeg@v1
         with:
-          ffmpeg-version: release
-          linking-type: static
+          version: release
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run command
         env:
           COMMANDS: ${{ inputs.command }}
