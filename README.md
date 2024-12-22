@@ -15,12 +15,11 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 - Works in practically every devices, as long as it could invoke GitHub Actions workflows 
 
 # Usage
-Open the GitHub Actions page:
-
-[![GitHub Actions Workflows](https://img.shields.io/badge/Actions-Workflows-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Actions&labelColor=444444&color=222333)
-](../../actions/)
-
-Then you may choose one of the workflows you want to use.
+1. [Star](../../stargazers) this repository 🌟
+2. Open the repository [Actions page](../../actions).
+3. Pick one of the workflows you want to use (e.g. Streamrip).
+4. Press the `run workflow` button and input the info.
+5. Done!
 
 > [!IMPORTANT]
 > To request downloads, you must have collaborator access.
