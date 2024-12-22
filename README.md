@@ -15,6 +15,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 - Works in practically every devices, as long as it could invoke GitHub Actions workflows 
 
 ## Usage
+
 1. [Star](../../stargazers) this repository 🌟
 2. Open the repository [Actions page](../../actions).
 3. Pick one of the workflows you want to use (e.g. Streamrip).
@@ -23,6 +24,8 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 
 > [!IMPORTANT]
 > To request downloads, you must have collaborator access.
+
+## Tools
 
 ### Streamrip
 
