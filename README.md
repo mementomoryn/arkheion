@@ -14,3 +14,9 @@ Why use **Arkheion** instead of running a python scripts in your device:
 - Downloads is uploaded as GitHub Artifacts, allow you to share the link with others.
 
 # Usage
+[![GitHub Actions Template](https://img.shields.io/badge/Actions-Workflows-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Actions&labelColor=444444&color=222333)
+](../../actions/)
+To request download, you need to have collaborator roles.
+
+## Streamrip
+> Supported: Qobuz, Deezer, and SoundCloud
