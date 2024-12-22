@@ -26,4 +26,7 @@ Then you may choose one of the workflows you want to use.
 > To request downloads, you must have collaborator access.
 
 ## Streamrip
+
+![GitHub Repo stars](https://img.shields.io/github/stars/nathom/streamrip?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)
+
 > Supported services: Qobuz, Deezer, and SoundCloud
