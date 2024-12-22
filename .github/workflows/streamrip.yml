@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       command:
-        description: Choose Streamrip command
+        description: Choose Streamrip command to run
         required: true
         type: choice
         options:
@@ -13,11 +13,11 @@ on:
           - LASTFM
           - CONFIG RESET
       query:
-        description: Set tracks query to download
+        description: Set queries to download
         required: true
         type: string
       quality:
-        description: Select tracks quality (quality depends on the source)
+        description: Select downloaded songs quality (quality depends on the source)
         required: false
         type: choice
         options:
@@ -30,7 +30,7 @@ on:
           - AUTO
         default: AUTO
       codec:
-        description: Select tracks codec
+        description: Select downloaded songs format
         required: false
         type: choice
         options:
