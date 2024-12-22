@@ -1,5 +1,4 @@
 name: Streamrip
-# Supported sources: Qobuz, Deezer, and SoundCloud
 on:
   workflow_dispatch:
     inputs:
@@ -21,12 +20,11 @@ on:
         required: false
         type: choice
         options:
-          # check https://github.com/nathom/streamrip/wiki/Quality-IDs for supported quality per sources
-          - 4 # 24 bit, ≤ 192 kHz (Hi-Res)
-          - 3 # 24 bit, ≤ 96 kHz (Hi-Fi / MQA)
-          - 2 # 16 bit, 44.1 kHz (CD Quality / Lossless)
-          - 1 # 320 kbps (Great)
-          - 0 # 128 kbps (Good)
+          - 4
+          - 3
+          - 2
+          - 1
+          - 0
           - AUTO
         default: AUTO
       codec:
