@@ -4,14 +4,14 @@ on:
   workflow_dispatch:
     inputs:
       command:
-        description: Choose SpotDL command
+        description: Choose SpotDL command to run
         required: true
         type: choice
         options:
           - DOWNLOAD
           - URL
       query:
-        description: Set query/url to download
+        description: Set queries to download
         required: true
         type: string
       codec:
