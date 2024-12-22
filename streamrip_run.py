@@ -1,5 +1,5 @@
 import os
-from utils import run_command
+from utils import panic, run_command
 
 select = os.environ["COMMANDS"]
 query = os.environ["QUERY"]
@@ -32,5 +32,4 @@ else:
 run_command(command)
 
 if os.path.exists("music") is False:
-    print("[ERROR] Downloads folder does not exist")
-    exit(1)
+    panic("[ERROR] Downloads folder does not exist")
