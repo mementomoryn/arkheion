@@ -1,5 +1,4 @@
 name: SpotDL
-# Supported sources: Spotify, and YouTube Music
 on:
   workflow_dispatch:
     inputs:
