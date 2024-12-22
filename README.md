@@ -16,8 +16,10 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 
 # Usage
 Open the GitHub Actions page:
+
 [![GitHub Actions Workflows](https://img.shields.io/badge/Actions-Workflows-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Actions&labelColor=444444&color=222333)
 ](../../actions/)
+
 Then you may choose one of the workflows you want to use.
 
 > [!IMPORTANT]
