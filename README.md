@@ -12,7 +12,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 - Entirely ran with GitHub Actions runners, so it's really quick.
 - Provide a simple GUI, so it's much easier to use.
 - Downloads is uploaded as GitHub Artifacts, allows to share your downloaded songs with just a link.
-- Works in practically every devices, as long as it could run GitHub Actions workflows 
+- Works in practically every devices, as long as it could invoke GitHub Actions workflows 
 
 # Usage
 Open the GitHub Actions page:
