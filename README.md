@@ -20,4 +20,4 @@ Why use **Arkheion** instead of running a python scripts in your device:
 To request download, you need to have collaborator roles.
 
 ## Streamrip
-> Supported: Qobuz, Deezer, and SoundCloud
+> Supported services: Qobuz, Deezer, and SoundCloud
