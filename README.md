@@ -3,7 +3,7 @@
 # Introduction
 _**Ever feel annoyed of missing songs you once liked because it's removed from music streaming services?**_
 
-With **Arkheion**, you can easily download your favorite songs you wanted to archive.
+With **Arkheion**, you can easily download favorite songs you wanted to archive.
 
 **Arkheion** collects multiple python scripts to download songs, albums, and even playlists in the best quality.
 
