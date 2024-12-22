@@ -1,5 +1,5 @@
 name: Streamrip
-# Supported sources: Qobuz, Deezer
+# Supported sources: Qobuz, Deezer, and SoundCloud
 on:
   workflow_dispatch:
     inputs:
