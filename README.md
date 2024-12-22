@@ -30,3 +30,9 @@ Then you may choose one of the workflows you want to use.
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathom/streamrip?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/nathom/streamrip)
 
 > Supported services: Qobuz, Deezer, and SoundCloud
+
+## SpotDL
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/spotDL/spotify-downloader?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/spotDL/spotify-downloader)
+
+> Supported services: Spotify and YouTube Music
