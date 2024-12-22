@@ -1,0 +1,82 @@
+name: SpotDL
+# Supported sources: Spotify, and YouTube Music
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: Choose SpotDL command
+        required: true
+        type: choice
+        options:
+          - DOWNLOAD
+          - URL
+      query:
+        description: Set query/url to download
+        required: true
+        type: string
+      codec:
+        description: Select downloaded songs format
+        required: false
+        type: choice
+        options:
+          - FLAC
+          - WAV
+          - OPUS
+          - OGG
+          - M4A
+          - MP3
+          - ORIGINAL
+        default: ORIGINAL
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  downloads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.12'
+      - name: Install python dependencies
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade spotdl
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Set up FFmpeg
+        id: setup-ffmpeg
+        uses: AnimMouse/setup-ffmpeg@v1
+        with:
+          version: release
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run command
+        env:
+          COMMANDS: ${{ inputs.command }}
+          QUERY: ${{ inputs.query }}
+          CODEC: ${{ inputs.codec }}
+        shell: bash
+        run: |
+          python spotdl_run.py
+      - name: Generate datetime codes
+        id: dt-codes
+        shell: bash
+        run: |
+          echo "dtcode=$(date +%N%s | sed 's/0//g' | cut --complement -c 5-10 | cut -c 3-7)" >> $GITHUB_OUTPUT
+      - name: Upload downloads as artifact
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spotdl-downloads-${{ steps.dt-codes.outputs.dtcode }}
+          path: music
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: true
+      - name: Print artifact info
+        shell: bash
+        run: |
+          echo "[INFO] artifact-id: ${{ steps.artifact.outputs.artifact-id }}"
+          echo "[INFO] artifact-url: ${{ steps.artifact.outputs.artifact-url }}"
