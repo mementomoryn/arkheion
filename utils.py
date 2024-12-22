@@ -1,6 +1,4 @@
 import os
-import requests
-import subprocess
 import sys
 
 def panic(message: str):
