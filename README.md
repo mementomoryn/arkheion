@@ -17,7 +17,7 @@ Why use **Arkheion** instead of running a python scripts in your device:
 [![GitHub Actions Template](https://img.shields.io/badge/Actions-Workflows-444444?style=for-the-badge&logo=github%20actions&logoColor=FFFFFF&label=Actions&labelColor=444444&color=222333)
 ](../../actions/)
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > To request downloads, you must have collaborator access.
 
 ## Streamrip
