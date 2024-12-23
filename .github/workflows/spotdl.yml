@@ -59,7 +59,7 @@ jobs:
           CODEC: ${{ inputs.codec }}
         shell: bash
         run: |
-          python spotdl_run.py
+          python spotdl_module.py
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
