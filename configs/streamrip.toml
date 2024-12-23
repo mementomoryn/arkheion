@@ -27,9 +27,9 @@ download_booklets = false
 # Authenticate to Qobuz using auth token? Value can be true/false only
 use_auth_token = true
 # Enter your userid if the above use_auth_token is set to true, else enter your email
-email_or_userid = "3455849"
+email_or_userid = "[[QOBUZ_USER_ID]]"
 # Enter your auth token if the above use_auth_token is set to true, else enter the md5 hash of your plaintext password
-password_or_token = "WD0pn4M4-d6wZo-RDXMS_cK2JU0v4BeqVHLeRrdtPsfIuKoyOsAmgj129b1hZXaUNpwzxdwxCyXR8tkYP6bLzw"
+password_or_token = "[[QOBUZ_TOKEN]]"
 # Do not change
 app_id = "579939560"
 # Do not change
@@ -59,7 +59,7 @@ quality = 2
 # An authentication cookie that allows streamrip to use your Deezer account
 # See https://github.com/nathom/streamrip/wiki/Finding-Your-Deezer-ARL-Cookie
 # for instructions on how to find this
-arl = "d42adee4077d6a21dce7fff4ec56a61210b2be0cf4fb0ffa4c5bbfa361a2b3ed9a53791d8856d8c6cd961c921dfe08dae6060facc52396892ef41b51635275229eaa73752269620c320f1c82a60b7251c8e664d1d402f1d96760cdc008bef452"
+arl = "[[DEEZER_ARL]]"
 # This allows for free 320kbps MP3 downloads from Deezer
 # If an arl is provided, deezloader is never used
 use_deezloader = true
