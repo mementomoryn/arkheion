@@ -13,13 +13,13 @@ with open("configs/spotdl.json") as config:
     for key, values in json.load(config).items():
         if key != 'format' or codec == 'ORIGINAL':
             command.append(f"--{key}")
-            if type(values) is bool:
-                command.append(str(values))
+            if type(values) is str:
+                command.append(values)
             elif type(values) is list:
                 for i in values:
                     command.append(i)
             else:
-                command.append(values)
+                command.append(str(values))
 
 if codec != 'ORIGINAL':
     command.append('--format')
