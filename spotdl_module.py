@@ -20,7 +20,7 @@ with open("configs/spotdl.json") as config:
                     command.append(i)
 
 command.append('--output')
-command.append('music/{album-artist}/{album} ({year})/{artist} - {title}.{output-ext}')
+command.append('music/{album-artist}/{album}/{artist} - {title}.{output-ext}')
 
 if codec != 'ORIGINAL':
     command.append('--format')
