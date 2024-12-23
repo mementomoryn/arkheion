@@ -22,7 +22,7 @@
     "playlist_numbering": false,
     "scan_for_songs": false,
     "m3u": null,
-    "output": "{album-artist}/{album} ({year})/{artist} - {title}.{output-ext}",
+    "output": "music/{album-artist}/{album} ({year})/{artist} - {title}.{output-ext}",
     "m3u_output": "#EXTINF:{duration}, {artists} - {title}.{output-ext}",
     "overwrite": "skip",
     "search_query": null,
