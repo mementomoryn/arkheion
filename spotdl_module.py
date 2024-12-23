@@ -10,8 +10,8 @@ command = [
 ]
 
 command.append('--config')
-run_command(['mkdir', '.spotdl'])
-run_command(['ln', '-s', 'configs/spotdl.json', '.spotdl/config.json'])
+run_command(['mkdir', 'spotdl'])
+run_command(['ln', 'configs/spotdl.json', 'spotdl/config.json'])
 
 command.append('--log-level')
 command.append('DEBUG')
