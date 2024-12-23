@@ -18,7 +18,6 @@
     "format": "opus",
     "filter_results": false,
     "threads": "auto",
-    "cookie_file": null,
     "print_errors": true,
     "sponsor_block": [
         "sponsor",
