@@ -39,7 +39,9 @@ command = [
     '--generate-lrc',
     '--print-errors',
     '--log-level',
-    'DEBUG'
+    'DEBUG',
+     '--cookie-file',
+     'cookies.txt'
 ]
 
 command.append('--format')
