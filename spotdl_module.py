@@ -38,8 +38,8 @@ command = [
     '--dont-filter-results',
     '--generate-lrc',
     '--print-errors',
-    '--output',
-    output_path
+    '--log-level',
+    'DEBUG'
 ]
 
 command.append('--format')
@@ -51,6 +51,9 @@ else:
 command.append('download')
 
 command.append(query.strip())
+
+command.append('--output')
+command.append(output_path)
 
 print(f"[INFO] {query}, codec: {codec}")
 
