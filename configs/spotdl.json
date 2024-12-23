@@ -1,14 +1,14 @@
 {
-    "client_id": "[[SPOTDL_CLIENT_ID]]",
-    "client_secret": "[[SPOTDL_CLIENT_SECRET]]",
-    "no_cache": true,
-    "audio_providers": [
+    "client-id": "[[SPOTDL_CLIENT_ID]]",
+    "client-secret": "[[SPOTDL_CLIENT_SECRET]]",
+    "no-cache": true,
+    "audio": [
         "youtube-music",
         "bandcamp",
         "soundcloud",
         "youtube"
     ],
-    "lyrics_providers": [
+    "lyrics": [
         "musixmatch",
         "synced",
         "genius",
@@ -16,10 +16,10 @@
     ],
     "output": "music/{album-artist}/{album} - {year}/{artist} - {title}.{output-ext}",
     "format": "opus",
-    "filter_results": false,
+    "filter-results": false,
     "threads": 4,
-    "print_errors": true,
-    "sponsor_block": [
+    "print-errors": true,
+    "sponsor-block": [
         "sponsor",
         "intro",
         "outro",
@@ -29,7 +29,7 @@
         "interaction"
     ],
     "preload": true,
-    "load_config": false,
-    "log_level": "DEBUG",
-    "generate_lrc": true
+    "load-config": false,
+    "log-level": "DEBUG",
+    "generate-lrc": true
 }
