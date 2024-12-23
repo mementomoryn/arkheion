@@ -28,5 +28,5 @@ print(f"[INFO] {select}: ({query}), codec: {codec}")
 
 run_command(command)
 
-if os.path.exists("music") is False:
-    panic("[ERROR] Downloads folder does not exist")
+# if os.path.exists("music") is False:
+    # panic("[ERROR] Downloads folder does not exist")
