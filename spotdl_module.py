@@ -1,4 +1,5 @@
 import os
+import json
 from utils import panic, run_command
 
 query = os.environ["QUERY"]
@@ -8,12 +9,11 @@ command = [
     'spotdl'
 ]
 
-run_command(['mkdir', 'spotdl'])
-run_command(['ln', 'configs/spotdl.json', 'spotdl/config.json'])
-command.append('--config')
-
-command.append('--log-level')
-command.append('DEBUG')
+with open("configs/spotdl.json") as config
+    for key, values in json.load(config).items:
+        if key != 'format':
+            command.append(key)
+            command.append(values)
 
 if codec != 'ORIGINAL':
     command.append('--format')
