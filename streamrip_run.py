@@ -19,13 +19,13 @@ if select != 'CONFIG RESET':
             
     if codec != 'ORIGINAL':
         command.append('--codec')
-        command.append(codec)
+        command.append(codec.lower())
 
     command.append(select.lower())
 
     command.append(query.strip())
     
-    print(f"[INFO] Downloading tracks/albums from {select} ({query}):\nquality: {quality}\n codec: {codec}")
+    print(f"[INFO] {select} ({query}):\nquality: {quality}\n codec: {codec}")
 else:
     print("[INFO] Resetting `config.toml`...")
 
