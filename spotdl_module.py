@@ -29,6 +29,7 @@ command.append(query.strip())
 
 print(f"[INFO] {query}, codec: {codec}")
 
+print(command)
 run_command(command)
 
 # if os.path.exists("music") is False:
