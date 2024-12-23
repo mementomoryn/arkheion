@@ -9,7 +9,7 @@ client_secret = os.environ["CLIENT_SECRET"]
 output_path = "music/{artist}/{album} - {year}/{artist} - {title}.{output-ext}"
 
 audio_providers = [
-    "youtube_music",
+    "youtube-music",
     "bandcamp",
     "soundcloud",
     "youtube"
