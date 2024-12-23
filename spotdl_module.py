@@ -1,7 +1,6 @@
 import os
 from utils import panic, run_command
 
-select = os.environ["COMMANDS"]
 query = os.environ["QUERY"]
 codec = os.environ["CODEC"]
 
@@ -9,9 +8,9 @@ command = [
     'spotdl'
 ]
 
-command.append('--config')
 run_command(['mkdir', 'spotdl'])
 run_command(['ln', 'configs/spotdl.json', 'spotdl/config.json'])
+command.append('--config')
 
 command.append('--log-level')
 command.append('DEBUG')
@@ -20,7 +19,7 @@ if codec != 'ORIGINAL':
     command.append('--format')
     command.append(codec.lower())
 
-command.append(select.lower())
+command.append('download')
 
 command.append(query.strip())
 
