@@ -2,13 +2,6 @@ name: SpotDL
 on:
   workflow_dispatch:
     inputs:
-      command:
-        description: Choose SpotDL command to run
-        required: true
-        type: choice
-        options:
-          - DOWNLOAD
-          - URL
       query:
         description: Set queries to download
         required: true
@@ -68,7 +61,6 @@ jobs:
           SPOTDL_CLIENT_SECRET: ${{ steps.secrets.outputs.spotdl_client_secret }}
       - name: Run command
         env:
-          COMMANDS: ${{ inputs.command }}
           QUERY: ${{ inputs.query }}
           CODEC: ${{ inputs.codec }}
         shell: bash
