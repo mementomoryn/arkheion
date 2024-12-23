@@ -56,7 +56,6 @@ jobs:
         env:
           spotdl_client_id: ${{ secrets.SPOTIFY_CLIENT_ID }}
         uses: cschleiden/replace-tokens@master
-        if: ${{ env.spotdl_client_id != '' }}
         with:
           tokenPrefix: '[['
           tokenSuffix: ']]'
@@ -67,7 +66,6 @@ jobs:
         env:
           spotdl_client_secret: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
         uses: cschleiden/replace-tokens@master
-        if: ${{ env.spotdl_client_secret != '' }}
         with:
           tokenPrefix: '[['
           tokenSuffix: ']]'
