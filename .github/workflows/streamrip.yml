@@ -67,6 +67,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Output secrets
         id: secrets
+        shell: bash
         run: |
           echo "qobuz_user_id=${{ secrets.QOBUZ_USER_ID }}" >> $GITHUB_OUTPUT
           echo "qobuz_token=${{ secrets.QOBUZ_TOKEN }}" >> $GITHUB_OUTPUT
