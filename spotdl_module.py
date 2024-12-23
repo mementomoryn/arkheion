@@ -19,7 +19,7 @@ with open("configs/spotdl.json") as config:
                 for i in values:
                     command.append(i)
             else:
-                command.append(str(values))
+                command.append(str(values).lower())
 
 if codec != 'ORIGINAL':
     command.append('--format')
