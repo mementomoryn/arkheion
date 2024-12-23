@@ -25,7 +25,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 > [!IMPORTANT]
 > To request downloads, you must have collaborator access.
 
-## Tools
+## Modules
 
 ### Streamrip
 
