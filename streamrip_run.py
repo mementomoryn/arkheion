@@ -25,11 +25,11 @@ if select != 'CONFIG RESET':
 
     command.append(query.strip())
     
-    print(f"[INFO] {select} ({query}), quality: {quality}, codec: {codec}")
+    print(f"[INFO] ({select}) {query}, quality: {quality}, codec: {codec}")
 else:
     print("[INFO] Resetting `config.toml`...")
 
 run_command(command)
 
-if os.path.exists("music") is False:
-    panic("[ERROR] Downloads folder does not exist")
+# if os.path.exists("music") is False:
+    # panic("[ERROR] Downloads folder does not exist")
