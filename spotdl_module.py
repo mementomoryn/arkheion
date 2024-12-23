@@ -15,9 +15,6 @@ with open("configs/spotdl.json") as config:
             command.append(f"--{key}")
             if type(values) is str:
                 command.append(values)
-            elif type(values) is list:
-                for i in values:
-                    command.append(i)
             else:
                 command.append(str(values).lower())
 
