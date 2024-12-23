@@ -5,7 +5,7 @@ def panic(message: str):
     print(message, file=sys.stderr)
     exit(1)
                 
-def run_command(command: list):
+def run_command(command: list[str]):
     os.system(" ".join(command))
 
 def set_github_output(name, value):
