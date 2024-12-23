@@ -14,13 +14,13 @@ command.append(select.lower())
 command.append(query.strip())
 
 command.append('--config')
-command.append('configs/spotdl.json')
+# command.append('configs/spotdl.json')
 
 if codec != 'ORIGINAL':
     command.append('--format')
     command.append(codec.lower())
 
-print(f"[INFO] {select}: ({query}):\n codec: {codec}")
+print(f"[INFO] {select}: ({query}), codec: {codec}")
 
 run_command(command)
 
