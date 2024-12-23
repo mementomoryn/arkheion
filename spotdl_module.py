@@ -9,18 +9,20 @@ command = [
     'spotdl'
 ]
 
-command.append(select.lower())
-
-command.append(query.strip())
-
 command.append('--config')
-command.append('configs/spotdl.json')
-# run_command(['mkdir', '.spotdl'])
-# run_command(['ln', '-s', 'configs/spotdl.json', '.spotdl/config.json'])
+run_command(['mkdir', '.spotdl'])
+run_command(['ln', '-s', 'configs/spotdl.json', '.spotdl/config.json'])
+
+command.append('--log-level')
+command.append('DEBUG')
 
 if codec != 'ORIGINAL':
     command.append('--format')
     command.append(codec.lower())
+
+command.append(select.lower())
+
+command.append(query.strip())
 
 print(f"[INFO] {select}: ({query}), codec: {codec}")
 
