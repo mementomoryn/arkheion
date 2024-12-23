@@ -16,7 +16,7 @@
     ],
     "format": "opus",
     "filter_results": false,
-    "threads": "auto",
+    "threads": 4,
     "print_errors": true,
     "sponsor_block": [
         "sponsor",
