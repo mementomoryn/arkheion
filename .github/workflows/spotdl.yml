@@ -45,6 +45,10 @@ jobs:
         with:
           version: release
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Decode cookies file
+        shell: bash
+        run: |
+          base64 -d ${{ secrets.YTMUSIC_COOKIE_BASE64 }} >> cookies.txt
       - name: Run command
         env:
           QUERY: ${{ inputs.query }}
