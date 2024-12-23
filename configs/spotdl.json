@@ -33,7 +33,7 @@
     "save_file": null,
     "filter_results": true,
     "album_type": null,
-    "threads": auto,
+    "threads": "auto",
     "cookie_file": null,
     "restrict": null,
     "print_errors": true,
