@@ -54,6 +54,7 @@ jobs:
         shell: bash
         run: |
           spotdl --generate-config
+          echo "y"
           python spotdl_module.py
       - name: Generate datetime codes
         id: dt-codes
