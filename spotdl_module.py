@@ -6,7 +6,7 @@ codec = os.environ["CODEC"]
 client_id = os.environ["CLIENT_ID"]
 client_secret = os.environ["CLIENT_SECRET"]
 
-output_path = r"music/{artist}/{album} ({year})/{artist} - {title}.{output-ext}"
+output_path = r"'music/{artist}/{album} ({year})/{artist} - {title}.{output-ext}'"
 
 audio_providers = [
     "youtube-music",
