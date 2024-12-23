@@ -20,7 +20,7 @@ if codec != 'ORIGINAL':
     command.append('--format')
     command.append(codec.lower())
 
-print(f"[INFO] {select}: ({query}):\nquality: {quality}\n codec: {codec}")
+print(f"[INFO] {select}: ({query}):\n codec: {codec}")
 
 run_command(command)
 
