@@ -11,8 +11,8 @@ command = [
 
 with open("configs/spotdl.json") as config
     for key, values in json.load(config).items:
-        if key != 'format':
-            command.append(key)
+        if key != 'format' | codec == 'ORIGINAL':
+            command.append(f"--{key}")
             command.append(values)
 
 if codec != 'ORIGINAL':
