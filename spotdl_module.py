@@ -31,7 +31,7 @@ command = [
     '--audio',
     audio_providers,
     '--lyrics',
-    lyrics_provider,
+    lyrics_providers,
     '--sponsor-block',
     '--no-cache',
     '--preload',
