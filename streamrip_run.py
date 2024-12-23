@@ -23,7 +23,7 @@ if select != 'CONFIG RESET':
 
     command.append(select.lower())
 
-    command.append(query)
+    command.append(query.strip())
     
     print(f"[INFO] Downloading tracks/albums from {select} ({query}):\nquality: {quality}\n codec: {codec}")
 else:
