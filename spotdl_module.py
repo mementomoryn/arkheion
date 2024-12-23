@@ -19,6 +19,9 @@ with open("configs/spotdl.json") as config:
                 for i in values:
                     command.append(i)
 
+command.append('--output')
+command.append('music/{album-artist}/{album} \({year}\)/{artist} - {title}.{output-ext}')
+
 if codec != 'ORIGINAL':
     command.append('--format')
     command.append(codec.lower())
