@@ -57,7 +57,7 @@ jobs:
         run: |
           echo "spotdl_client_id=${{ secrets.SPOTIFY_CLIENT_ID }}" >> $GITHUB_OUTPUT
           echo "spotdl_client_secret=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> $GITHUB_OUTPUT
-      - name: Assign client_id  
+      - name: Assign secrets  
         uses: cschleiden/replace-tokens@master
         with:
           tokenPrefix: '[['
@@ -65,13 +65,6 @@ jobs:
           files: '["configs/spotdl.json"]'
         env:
           SPOTDL_CLIENT_ID: ${{ steps.secrets.outputs.spotdl_client_id }}
-      - name: Assign client_secret
-        uses: cschleiden/replace-tokens@master
-        with:
-          tokenPrefix: '[['
-          tokenSuffix: ']]'
-          files: '["configs/spotdl.json"]'
-        env:
           SPOTDL_CLIENT_SECRET: ${{ steps.secrets.outputs.spotdl_client_secret }}
       - name: Run command
         env:
