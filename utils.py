@@ -6,7 +6,7 @@ def panic(message: str):
     exit(1)
                 
 def run_command(command: list):
-    os.system(" ".join(command))
+    os.system(" ".join(map(str, command)))
 
 def set_github_output(name, value):
     with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
