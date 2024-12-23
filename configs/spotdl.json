@@ -26,7 +26,7 @@
     "m3u_output": "#EXTINF:{duration}, {artists} - {title}.{output-ext}",
     "overwrite": "skip",
     "search_query": null,
-    "ffmpeg": "ffmpeg",
+    "ffmpeg": "FFmpeg",
     "bitrate": null,
     "ffmpeg_args": null,
     "format": "opus",
