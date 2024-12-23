@@ -14,6 +14,7 @@
         "genius",
         "azlyrics"
     ],
+    "output": "music/{album-artist}/{album} - {year}/{artist} - {title}.{output-ext}",
     "format": "opus",
     "filter_results": false,
     "threads": 4,
