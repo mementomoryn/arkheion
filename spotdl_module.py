@@ -23,7 +23,7 @@ command.append('download')
 
 command.append(query.strip())
 
-print(f"[INFO] {select}: ({query}), codec: {codec}")
+print(f"[INFO] {query}, codec: {codec}")
 
 run_command(command)
 
