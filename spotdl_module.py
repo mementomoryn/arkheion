@@ -37,7 +37,7 @@ command = [
     '--preload',
     '--dont-filter-results',
     '--generate-lrc',
-    '--print-errors
+    '--print-errors',
     '--output',
     output_path
 ]
