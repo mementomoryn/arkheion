@@ -14,7 +14,7 @@ command.append(select.lower())
 command.append(query.strip())
 
 command.append('--config')
-# command.append('configs/spotdl.json')
+run_command(['ln', '-s', 'configs/spotdl.json', '.spotdl/config.json'])
 
 if codec != 'ORIGINAL':
     command.append('--format')
