@@ -14,7 +14,7 @@ with open("configs/spotdl.json") as config:
         if key != 'format' or codec == 'ORIGINAL':
             command.append(f"--{key}")
             if type(values) is not list:
-                command.append(str(values))
+                command.append(values)
             else:
                 for i in values:
                     command.append(i)
