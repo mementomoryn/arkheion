@@ -65,6 +65,22 @@ jobs:
         with:
           version: release
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Output secrets
+        id: secrets
+        run: |
+          echo "qobuz_user_id=${{ secrets.QOBUZ_USER_ID }}" >> $GITHUB_OUTPUT
+          echo "qobuz_token=${{ secrets.QOBUZ_TOKEN }}" >> $GITHUB_OUTPUT
+          echo "deezer_arl=${{ secrets.DEEZER_ARL }}" >> $GITHUB_OUTPUT
+      - name: Assign secrets 
+        uses: cschleiden/replace-tokens@master
+        with:
+          tokenPrefix: '[['
+          tokenSuffix: ']]'
+          files: '["configs/spotdl.json"]'
+        env:
+          QOBUZ_USER_ID: ${{ steps.secrets.outputs.qobuz_user_id }}
+          QOBUZ_TOKEN: ${{ steps.secrets.outputs.qobuz_token }}
+          DEEZER_ARL: ${{ steps.secrets.outputs.deezer_arl }}
       - name: Run command
         env:
           COMMANDS: ${{ inputs.command }}
