@@ -9,6 +9,7 @@ on:
         options:
           - ID
           - URL
+          - SEARCH
           - LASTFM
           - CONFIG RESET
       query:
