@@ -90,7 +90,7 @@ jobs:
           CODEC: ${{ inputs.codec }}
         shell: bash
         run: |
-          python streamrip_run.py
+          python streamrip_module.py
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
