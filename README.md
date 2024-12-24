@@ -36,7 +36,8 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 | :------- | :------- |
 | Qobuz    | Original |
 | Deezer   | Original |
-| LastFM   | Fallback |
+| Tidal    | Original |
+| Last.fm  | Fallback |
 
 ### SpotDL
 
