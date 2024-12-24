@@ -9,7 +9,7 @@ Rest assured, **Arkheion** support downloading from various music streaming serv
 With **Arkheion**, you can easily download favorite songs you wanted to archive.
 
 Why use **Arkheion** instead of running the scripts directly in your device:
-- Entirely ran with GitHub Actions virtual environments, so it's really fast.
+- Entirely ran with GitHub-hosted runners through Actions, so it's really fast.
 - Provide a simple input GUI, so it's much easier to use.
 - Downloads is uploaded as GitHub Artifacts, allowing you to share previously downloaded songs with just a link.
 - Works in practically every devices, as long as it could invoke GitHub Actions workflows 
