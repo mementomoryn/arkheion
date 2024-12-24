@@ -2,6 +2,7 @@ import os
 from utils import panic, run_command
 
 query = os.environ["QUERY"]
+query_untracked = query.split("?")[0]
 codec = os.environ["CODEC"]
 client_id = os.environ["CLIENT_ID"]
 client_secret = os.environ["CLIENT_SECRET"]
@@ -52,12 +53,12 @@ else:
 
 command.append('download')
 
-command.append(query.strip())
+command.append(query_untracked.strip())
 
 command.append('--output')
 command.append(output_path)
 
-print(f"[INFO] {query}, codec: {codec}")
+print(f"[INFO] {query_untracked}, codec: {codec}")
 
 run_command(command)
 
