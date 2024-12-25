@@ -27,8 +27,8 @@ if select != 'CONFIG RESET':
 
     if select == 'SEARCH':
         command.append('--first')
-        command.append(service)
-        command.append(type)
+        command.append(service.lower())
+        command.append(type.lower())
 
     command.append(query.strip())
     
