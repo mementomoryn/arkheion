@@ -66,6 +66,7 @@ permissions:
 
 jobs:
   downloads:
+    name: "${{ inputs.service }} - ${{ github.actor }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
