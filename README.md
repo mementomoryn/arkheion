@@ -32,19 +32,22 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathom/streamrip?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/nathom/streamrip)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/streamrip.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/streamrip.yml)
 
-| Services | Sources  |
-| :------- | :------- |
-| Qobuz    | Direct   |
-| Deezer   | Direct   |
-| Tidal    | Direct   |
-| Last.fm  | Fallback |
+| Services | Sources      |
+| :------- | :----------- |
+| Qobuz    | Direct[^1]   |
+| Deezer   | Direct[^1]   |
+| Tidal    | Direct[^1]   |
+| Last.fm  | Fallback[^2] |
 
 ### SpotDL
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/spotDL/spotify-downloader?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/spotDL/spotify-downloader)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/spotdl.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/spotdl.yml)
 
-| Services      | Sources  |
-| :------------ | :------- |
-| Spotify       | Fallback |
-| YouTube Music | Direct   |
+| Services      | Sources       |
+| :------------ | :------------ |
+| Spotify       | Fallback [^2] |
+| YouTube Music | Direct[^1]    |
+
+[^1]: Downloads directly from respective services.
+[^2]: Downloads duplicate from other services.
