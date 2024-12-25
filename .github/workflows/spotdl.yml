@@ -31,16 +31,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
       - name: Install python dependencies
         shell: bash
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade spotdl
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python -m pip install -r requirements.txt
       - name: Set up FFmpeg
         id: setup-ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
