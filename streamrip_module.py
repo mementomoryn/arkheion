@@ -2,6 +2,7 @@ import os
 from utils import panic, run_command
 
 select = os.environ["COMMANDS"]
+service = os.environ["SERVICE"]
 query = os.environ["QUERY"]
 quality = os.environ["QUALITY"]
 codec = os.environ["CODEC"]
@@ -22,6 +23,9 @@ if select != 'CONFIG RESET':
         command.append(codec.lower())
 
     command.append(select.lower())
+
+    if select == 'SEARCH':
+        command.append(service + " ")
 
     command.append(query.strip())
     
