@@ -34,9 +34,9 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 
 | Services | Sources  |
 | :------- | :------- |
-| Qobuz    | Original |
-| Deezer   | Original |
-| Tidal    | Original |
+| Qobuz    | Direct   |
+| Deezer   | Direct   |
+| Tidal    | Direct   |
 | Last.fm  | Fallback |
 
 ### SpotDL
@@ -47,4 +47,4 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 | Services      | Sources  |
 | :------------ | :------- |
 | Spotify       | Fallback |
-| YouTube Music | Original |
+| YouTube Music | Direct   |
