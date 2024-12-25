@@ -12,6 +12,16 @@ on:
           - SEARCH
           - LASTFM
           - CONFIG RESET
+        default: URL
+      service:
+        description: Select music service (only used for search)
+        required: true
+        type: choice
+        options:
+          - QOBUZ
+          - DEEZER
+          - TIDAL
+        default: QOBUZ
       query:
         description: Set queries to download
         required: true
@@ -86,12 +96,18 @@ jobs:
       - name: Run command
         env:
           COMMANDS: ${{ inputs.command }}
+          SERVICE: ${{ inputs.service }}
           QUERY: ${{ inputs.query }}
           QUALITY: ${{ inputs.quality }}
           CODEC: ${{ inputs.codec }}
         shell: bash
         run: |
           python streamrip_module.py
+      - name: Update configs
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Automated streamrip config file updates
+          file_pattern: configs/streamrip.toml
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
