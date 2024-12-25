@@ -3,6 +3,7 @@ from utils import panic, run_command
 
 select = os.environ["COMMANDS"]
 service = os.environ["SERVICE"]
+type = os.environ["TYPE"]
 query = os.environ["QUERY"]
 quality = os.environ["QUALITY"]
 codec = os.environ["CODEC"]
