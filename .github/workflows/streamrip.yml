@@ -1,4 +1,5 @@
 name: Streamrip
+run-name: "${{ inputs.command }} - ${{ github.actor }}"
 on:
   workflow_dispatch:
     inputs:
@@ -40,11 +41,11 @@ on:
         required: false
         type: choice
         options:
-          - 4
-          - 3
-          - 2
-          - 1
-          - 0
+          - "4"
+          - "3"
+          - "2"
+          - "1"
+          - "0"
           - AUTO
         default: AUTO
       codec:
@@ -65,7 +66,6 @@ permissions:
   contents: read
 
 jobs:
-  name: "${{ inputs.command }} - ${{ github.actor }}"
   downloads:
     runs-on: ubuntu-latest
     steps:
@@ -131,7 +131,7 @@ jobs:
             TIDAL_ACCESS_TOKEN=$tidal_access_token
             TIDAL_REFRESH_TOKEN=$(tq -f configs/streamrip.toml 'tidal.refresh_token')
             TIDAL_TOKEN_EXPIRY=$(tq -f configs/streamrip.toml 'tidal.token_expiry')
-            EOF
+            echo EOF
           else
             echo "update=false" >> $GITHUB_OUTPUT
           fi
