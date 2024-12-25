@@ -4,7 +4,7 @@ _**Ever feel annoyed of missing songs you once liked because it's removed from m
 
 Rest assured, **Arkheion** support downloading from various music streaming services.
 
-**Arkheion** collects multiple python scripts to download songs, albums, and even playlists in the best quality.
+**Arkheion** collects multiple python scripts to download songs, albums, playlists, etc in the best quality.
 
 With **Arkheion**, you can easily download favorite songs you wanted to archive.
 
