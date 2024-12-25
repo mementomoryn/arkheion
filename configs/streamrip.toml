@@ -42,14 +42,14 @@ quality = 3
 download_videos = false
 
 # Do not change any of the fields below
-user_id = ""
-country_code = ""
-access_token = ""
-refresh_token = ""
+user_id = "[[TIDAL_USER_ID]]"
+country_code = "[[TIDAL_COUNTRY_CODE]]"
+access_token = "[[TIDAL_ACCESS_TOKEN]]"
+refresh_token = "[[TIDAL_REFRESH_TOKEN]]"
 # Tokens last 1 week after refresh. This is the Unix timestamp of the expiration
 # time. If you haven't used streamrip in more than a week, you may have to log
 # in again using `rip config --tidal`
-token_expiry = ""
+token_expiry = "[[TIDAL_TOKEN_EXPIRY]]"
 
 [deezer]
 # 0, 1, or 2
