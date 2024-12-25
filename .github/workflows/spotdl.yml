@@ -60,7 +60,7 @@ jobs:
         run: |
           python spotdl_module.py
       - name: Generate datetime codes
-        id: dt-codes
+        id: dt_codes
         shell: bash
         run: |
           echo "dtcode=$(date +%N%s | sed 's/0//g' | cut --complement -c 5-10 | cut -c 3-7)" >> $GITHUB_OUTPUT
@@ -68,7 +68,7 @@ jobs:
         id: artifact
         uses: actions/upload-artifact@v4
         with:
-          name: spotdl-downloads-${{ steps.dt-codes.outputs.dtcode }}
+          name: spotdl-downloads-${{ steps.dt_codes.outputs.dtcode }}
           path: music
           if-no-files-found: error
           retention-days: 7
