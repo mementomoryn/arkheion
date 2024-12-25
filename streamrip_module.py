@@ -25,7 +25,7 @@ if select != 'CONFIG RESET':
 
     command.append(query.strip())
     
-    print(f"[INFO] ({select}) {query}, quality: {quality}, codec: {codec}")
+    print(f"[INFO] ({select}) {query.strip()}, quality: {quality}, codec: {codec}")
 else:
     print("[INFO] Resetting `config.toml`...")
 
