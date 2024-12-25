@@ -71,7 +71,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: 'pip'
@@ -81,7 +81,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install git+https://github.com/nathom/streamrip.git@dev
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Install toml-cli
+      - name: Install tomlq
         uses: baptiste0928/cargo-install@v3
         with:
           crate: tomlq
