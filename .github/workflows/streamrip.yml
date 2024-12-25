@@ -96,7 +96,7 @@ jobs:
         with:
           tokenPrefix: '[['
           tokenSuffix: ']]'
-          files: '["configs/spotdl.json"]'
+          files: '["configs/streamrip.toml"]'
         env:
           QOBUZ_USER_ID: "${{ secrets.QOBUZ_USER_ID }}"
           QOBUZ_TOKEN: "${{ secrets.QOBUZ_TOKEN }}"
