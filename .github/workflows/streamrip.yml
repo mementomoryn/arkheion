@@ -103,11 +103,14 @@ jobs:
         shell: bash
         run: |
           python streamrip_module.py
-      - name: Update configs
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Parse config.toml
+        id: parse_config
+        uses: mikefarah/yq@master
         with:
-          commit_message: Automated streamrip config file updates
-          file_pattern: configs/streamrip.toml
+          cmd: |
+            echo "tidal_user_id=$(yq '.tidal.user_id' configs/streamrip.toml)" >> $GITHUB_OUTPUT
+            echo "tidal_country_code=$(yq '.tidal.country_code' configs/streamrip.toml)" >> $GITHUB_OUTPUT
+            echo "tidal_token_expiry=$(yq '.tidal.token_expiry' configs/streamrip.toml)" >> $GITHUB_OUTPUT
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
