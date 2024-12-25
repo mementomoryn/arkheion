@@ -30,7 +30,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 ### Streamrip
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/nathom/streamrip?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/nathom/streamrip)
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/streamrip.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/streamrip.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/streamrip.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/workflows/streamrip.yml)
 
 | Services | Sources      |
 | :------- | :----------- |
@@ -42,7 +42,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 ### SpotDL
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/spotDL/spotify-downloader?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/spotDL/spotify-downloader)
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/spotdl.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/spotdl.yml)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/spotdl.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/workflows/spotdl.yml)
 
 | Services      | Sources       |
 | :------------ | :------------ |
