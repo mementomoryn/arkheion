@@ -75,12 +75,11 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
       - name: Install python dependencies
-        shell: bash
         run: |
           python -m pip install --upgrade pip
           python -m pip install git+https://github.com/nathom/streamrip.git@dev
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Install tomlq
         uses: baptiste0928/cargo-install@v3
         with:
