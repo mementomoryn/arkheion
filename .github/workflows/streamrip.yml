@@ -106,7 +106,7 @@ jobs:
         run: |
           tidal_access_token=$(tq -f configs/streamrip.toml 'tidal.access_token')
 
-          if $tidal_access_token == ${{ secrets.TIDAL_ACCESS_TOKEN }}; then
+          if [[ $tidal_access_token == ${{ secrets.TIDAL_ACCESS_TOKEN }} ]]; then
             echo "update=true" >> $GITHUB_OUTPUT
 
             cat > tidal_secrets.env <<EOF
