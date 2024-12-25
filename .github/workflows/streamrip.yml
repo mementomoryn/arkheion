@@ -22,6 +22,15 @@ on:
           - DEEZER
           - TIDAL
         default: QOBUZ
+      type:
+        description: Select media types (only used for search)
+        required: true
+        type: choice
+        options:
+          - TRACK
+          - ALBUM
+          - PLAYLIST
+        default: TRACK
       query:
         description: Set queries to download
         required: true
@@ -100,6 +109,7 @@ jobs:
         env:
           COMMANDS: ${{ inputs.command }}
           SERVICE: ${{ inputs.service }}
+          TYPE: ${{ inputs.type }}
           QUERY: ${{ inputs.query }}
           QUALITY: ${{ inputs.quality }}
           CODEC: ${{ inputs.codec }}
