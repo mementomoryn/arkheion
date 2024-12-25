@@ -1,4 +1,5 @@
 name: SpotDL
+run-name: ${{ github.actor }}
 on:
   workflow_dispatch:
     inputs:
@@ -25,7 +26,6 @@ permissions:
   contents: read
 
 jobs:
-  name: ${{ github.actor }}
   downloads:
     runs-on: ubuntu-latest
     steps:
