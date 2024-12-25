@@ -91,6 +91,11 @@ jobs:
           QOBUZ_USER_ID: "${{ secrets.QOBUZ_USER_ID }}"
           QOBUZ_TOKEN: "${{ secrets.QOBUZ_TOKEN }}"
           DEEZER_ARL: "${{ secrets.DEEZER_ARL }}"
+          TIDAL_USER_ID: "${{ secrets.TIDAL_USER_ID }}"
+          TIDAL_COUNTRY_CODE: "${{ secrets.TIDAL_COUNTRY_CODE }}"
+          TIDAL_ACCESS_TOKEN: "${{ secrets.TIDAL_ACCESS_TOKEN }}"
+          TIDAL_REFRESH_TOKEN: "${{ secrets.TIDAL_REFRESH_TOKEN }}"
+          TIDAL_TOKEN_EXPIRY: "${{ secrets.TIDAL_TOKEN_EXPIRY }}"
       - name: Run command
         env:
           COMMANDS: ${{ inputs.command }}
