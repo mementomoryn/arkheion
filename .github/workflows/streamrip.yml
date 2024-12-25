@@ -135,7 +135,7 @@ jobs:
           TIDAL_ACCESS_TOKEN=(tq -f configs/streamrip.toml 'tidal.access_token')
           TIDAL_REFRESH_TOKEN=$(tq -f configs/streamrip.toml 'tidal.refresh_token')
           TIDAL_TOKEN_EXPIRY=$(tq -f configs/streamrip.toml 'tidal.token_expiry')
-          <<-EOF
+          EOF
       - name: Set secrets
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
