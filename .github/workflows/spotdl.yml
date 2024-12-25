@@ -41,7 +41,7 @@ jobs:
           python -m pip install -U pip
           python -m pip install -U spotdl
       - name: Set up FFmpeg
-        id: setup-ffmpeg
+        id: setup_ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
         with:
           version: release
