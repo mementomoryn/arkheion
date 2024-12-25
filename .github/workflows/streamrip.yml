@@ -127,7 +127,7 @@ jobs:
             echo "update=false" >> $GITHUB_OUTPUT
           fi
       - name: Write TIDAL credentials to file
-        if ${{ steps.tidal_auth.outputs.update == 'true' }}
+        if: ${{ steps.tidal_auth.outputs.update == 'true' }}
         run: |
           cat > tidal_secrets.env <<EOF
           TIDAL_USER_ID=$(tq -f configs/streamrip.toml 'tidal.user_id')
