@@ -80,23 +80,16 @@ jobs:
         with:
           version: release
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Output secrets
-        id: secrets
-        shell: bash
-        run: |
-          echo "qobuz_user_id=${{ secrets.QOBUZ_USER_ID }}" >> $GITHUB_OUTPUT
-          echo "qobuz_token=${{ secrets.QOBUZ_TOKEN }}" >> $GITHUB_OUTPUT
-          echo "deezer_arl=${{ secrets.DEEZER_ARL }}" >> $GITHUB_OUTPUT
-      - name: Assign secrets 
+      - name: Assign credentials secrets
         uses: cschleiden/replace-tokens@master
         with:
           tokenPrefix: '[['
           tokenSuffix: ']]'
           files: '["configs/spotdl.json"]'
         env:
-          QOBUZ_USER_ID: ${{ steps.secrets.outputs.qobuz_user_id }}
-          QOBUZ_TOKEN: ${{ steps.secrets.outputs.qobuz_token }}
-          DEEZER_ARL: ${{ steps.secrets.outputs.deezer_arl }}
+          QOBUZ_USER_ID: "${{ secrets.QOBUZ_USER_ID }}"
+          QOBUZ_TOKEN: "${{ secrets.QOBUZ_TOKEN }}"
+          DEEZER_ARL: "${{ secrets.DEEZER_ARL }}"
       - name: Run command
         env:
           COMMANDS: ${{ inputs.command }}
@@ -109,7 +102,11 @@ jobs:
           python streamrip_module.py
       - name: Parse tidal credentials from config.toml
         run: |
-          tq -h
+          echo "tq -f configs/streamrip.toml 'tidal.user_id'"
+          echo "tq -f configs/streamrip.toml 'tidal.access_token'"
+          echo "tq -f configs/streamrip.toml 'tidal.country_code'"
+          echo "tq -f configs/streamrip.toml 'tidal.refresh_token'"
+          echo "tq -f configs/streamrip.toml 'tidal.token_expiry'"
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
