@@ -58,7 +58,7 @@ command.append(query_untracked.strip())
 command.append('--output')
 command.append(output_path)
 
-print(f"[INFO] {query_untracked}, codec: {codec}")
+print(f"[INFO] {query_untracked.strip()}, codec: {codec}")
 
 run_command(command)
 
