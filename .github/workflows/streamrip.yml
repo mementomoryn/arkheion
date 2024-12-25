@@ -70,6 +70,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install git+https://github.com/nathom/streamrip.git@dev
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install toml-cli
+        uses: baptiste0928/cargo-install@v3
+        with:
+          crate: tomlq
       - name: Set up FFmpeg
         id: setup-ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
@@ -103,14 +107,9 @@ jobs:
         shell: bash
         run: |
           python streamrip_module.py
-      - name: Parse config.toml
-        id: parse_config
-        uses: mikefarah/yq@master
-        with:
-          cmd: |
-            echo "tidal_user_id=$(yq '.tidal.user_id' configs/streamrip.toml)" >> $GITHUB_OUTPUT
-            echo "tidal_country_code=$(yq '.tidal.country_code' configs/streamrip.toml)" >> $GITHUB_OUTPUT
-            echo "tidal_token_expiry=$(yq '.tidal.token_expiry' configs/streamrip.toml)" >> $GITHUB_OUTPUT
+      - name: Parse tidal credentials from config.toml
+        run: |
+          tq -h
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
