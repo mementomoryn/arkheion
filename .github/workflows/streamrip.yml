@@ -113,7 +113,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         run: |
-          gh secret set -a actions -f < tidal_secrets.env
+          gh secret set -a actions -f tidal_secrets.env
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
