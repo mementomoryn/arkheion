@@ -119,8 +119,7 @@ jobs:
       - name: Check update of TIDAL credentials
         id: tidal_auth
         run: |
-          tidal_access_token="$(tq -f configs/streamrip.toml 'tidal.access_token')"
-          if [ "${{ secrets.TIDAL_ACCESS_TOKEN }}" == "$tidal_access_token" ]; then
+          if [ $(tq -f configs/streamrip.toml 'tidal.access_token') == ${{ secrets.TIDAL_ACCESS_TOKEN }} ]; then
             echo "update=true" >> $GITHUB_OUTPUT
           else
             echo "update=false" >> $GITHUB_OUTPUT
