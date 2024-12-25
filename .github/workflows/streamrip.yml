@@ -65,8 +65,8 @@ permissions:
   contents: read
 
 jobs:
+  name: "${{ inputs.command }} - ${{ github.actor }}"
   downloads:
-    name: "${{ inputs.command }} - ${{ github.actor }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
