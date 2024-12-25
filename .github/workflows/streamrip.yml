@@ -102,11 +102,18 @@ jobs:
           python streamrip_module.py
       - name: Parse tidal credentials from config.toml
         run: |
-          echo "$(tq -f configs/streamrip.toml 'tidal.user_id')"
-          echo "$(tq -f configs/streamrip.toml 'tidal.access_token')"
-          echo "$(tq -f configs/streamrip.toml 'tidal.country_code')"
-          echo "$(tq -f configs/streamrip.toml 'tidal.refresh_token')"
-          echo "$(tq -f configs/streamrip.toml 'tidal.token_expiry')"
+          cat > tidal_secrets.env <<EOF
+          TIDAL_USER_ID=$(tq -f configs/streamrip.toml 'tidal.user_id')
+          TIDAL_COUNTRY_CODE=$(tq -f configs/streamrip.toml 'tidal.country_code')
+          TIDAL_ACCESS_TOKEN=$(tq -f configs/streamrip.toml 'tidal.access_token')
+          TIDAL_REFRESH_TOKEN=$(tq -f configs/streamrip.toml 'tidal.refresh_token')
+          TIDAL_TOKEN_EXPIRY=$(tq -f configs/streamrip.toml 'tidal.token_expiry')
+          EOF
+      - name: Set secrets
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+        run: |
+          gh secret set -a actions -f < tidal_secrets.env
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
