@@ -3,8 +3,38 @@ on:
   schedule:
     - cron: '0 16 * * *'
   workflow_dispatch:
+    inputs:
+      retain-days:
+        description: Set custom workflows retain days
+        required: true
+        type: string
+        default: '7'
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify user
+        id: user_id
+        run: |
+          if [[ ${{ github.actor_id }} == '132916305' || ${{ github.actor_id }} == '112367223' ]]; then
+            echo "verified=true" >> $GITHUB_OUTPUT
+          else
+            echo "verified=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Default workflows retain days
+        id: retain_days
+        run: |
+          if [ ${{ github.event }} == 'schedule' ]; then
+            echo "days=7" >> $GITHUB_OUTPUT
+          else
+            echo "days=${{ inputs.retain-days }}" >> $GITHUB_OUTPUT
+          fi
+    outputs:
+      user-verified: ${{ steps.user_id.outputs.verified }}
+      retain-days: ${{ steps.retain_days.outputs.days }}
   clear_runs:
+    needs: verify
+    if: ${{ needs.verify.outputs.user-verified == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -15,5 +45,5 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          retain_days: 7
+          retain_days: ${{ needs.verify.outputs.retain-days }}
           keep_minimum_runs: 0
