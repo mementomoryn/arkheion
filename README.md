@@ -18,8 +18,8 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 
 1. [Star](../../stargazers) this repository 🌟
 2. Open the repository [Actions page](../../actions).
-3. Pick one of the [_module_](#modules) workflows you want to use (e.g. Streamrip).
-4. Press the `run workflow` button and input the info.
+3. Pick one of the [_module_](#modules) workflows you wanted to use (e.g. Streamrip).
+4. Press the `run workflow` button and fill out the inputs info.
 5. Done!
 
 > [!IMPORTANT]
