@@ -1,4 +1,4 @@
-# Arkheion (WIP)
+# Arkheion
 
 _**Ever feel annoyed of missing songs you once liked because it's removed from music streaming services?**_
 
