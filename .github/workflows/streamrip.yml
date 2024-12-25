@@ -102,11 +102,11 @@ jobs:
           python streamrip_module.py
       - name: Parse tidal credentials from config.toml
         run: |
-          echo "tq -f configs/streamrip.toml 'tidal.user_id'"
-          echo "tq -f configs/streamrip.toml 'tidal.access_token'"
-          echo "tq -f configs/streamrip.toml 'tidal.country_code'"
-          echo "tq -f configs/streamrip.toml 'tidal.refresh_token'"
-          echo "tq -f configs/streamrip.toml 'tidal.token_expiry'"
+          echo "$(tq -f configs/streamrip.toml 'tidal.user_id')"
+          echo "$(tq -f configs/streamrip.toml 'tidal.access_token')"
+          echo "$(tq -f configs/streamrip.toml 'tidal.country_code')"
+          echo "$(tq -f configs/streamrip.toml 'tidal.refresh_token')"
+          echo "$(tq -f configs/streamrip.toml 'tidal.token_expiry')"
       - name: Generate datetime codes
         id: dt-codes
         shell: bash
