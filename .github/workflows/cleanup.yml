@@ -1,4 +1,5 @@
 name: "[CHORE] Cleanup"
+run-name: Cleanup
 on:
   schedule:
     - cron: '0 16 * * *'
