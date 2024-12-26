@@ -10,6 +10,8 @@ def cli_commands(select):
             return "dl"
         case "LOGIN":
             return "login"
+        case _
+            panic("[ERROR] Unrecognizable commands")
 
 command = [
     'tdn'
@@ -17,7 +19,7 @@ command = [
 
 command.append(map(cli_commands, select))
 
-if select == "DOWNLOAD"
+if select == "DOWNLOAD":
   command.append(query.strip())
 
 run_command(command)
