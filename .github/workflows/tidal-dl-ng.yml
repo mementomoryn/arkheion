@@ -71,7 +71,7 @@ jobs:
           QUALITY: ${{ inputs.quality }}
         shell: bash
         run: |
-          python -m modules.tidal-dl-ng.run
+          tidal-dl-ng login
       - name: Get PCKE token secret
         id: pcke
         run: |
