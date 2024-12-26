@@ -76,7 +76,7 @@ jobs:
         run: |
           echo "client_secret=$(jq .client_secret '$HOME/.config/tidal-dl-ng/token.json')" >> $GITHUB_OUTPUT
       - name: Write PCKE token to file
-        if: ${{ steps.pcke.outputs.client_secret != "secrets.TIDAL_CLIENT_SECRET" }}
+        if: ${{ steps.pcke.outputs.client_secret }} != ${{ secrets.TIDAL_CLIENT_SECRET }}
         run: |
           cat > secrets.env <<EOF
           TIDAL_PLATFORM=$(jq .platform '$HOME/.config/tidal-dl-ng/token.json')
@@ -86,7 +86,7 @@ jobs:
           TIDAL_VALID=$(jq .valid '$HOME/.config/tidal-dl-ng/token.json')
           EOF
       - name: Set secrets
-        if: ${{ steps.pcke.outputs.client_secret != "secrets.TIDAL_CLIENT_SECRET" }}
+        if: ${{ steps.pcke.outputs.client_secret }} != ${{ secrets.TIDAL_CLIENT_SECRET }}
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         run: |
