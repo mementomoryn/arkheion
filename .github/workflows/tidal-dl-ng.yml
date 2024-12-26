@@ -33,7 +33,7 @@ permissions:
 
 jobs:
   downloads:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
@@ -71,7 +71,7 @@ jobs:
           QUALITY: ${{ inputs.quality }}
         shell: bash
         run: |
-          tidal-dl-ng login
+          python -u -m modules.tidal-dl-ng.run
       - name: Get PCKE token secret
         id: pcke
         run: |
