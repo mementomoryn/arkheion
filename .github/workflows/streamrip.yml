@@ -122,7 +122,7 @@ jobs:
       - name: Write TIDAL credentials to file
         if: ${{ steps.tidal_auth.outputs.access_token == secrets.TIDAL_ACCESS_TOKEN }}
         run: |
-          cat > tidal_secrets.env <<EOF
+          cat > secrets.env <<EOF
           TIDAL_USER_ID=$(tq -f modules/streamrip/config.toml 'tidal.user_id')
           TIDAL_COUNTRY_CODE=$(tq -f modules/streamrip/config.toml 'tidal.country_code')
           TIDAL_ACCESS_TOKEN=${{ steps.tidal_auth.outputs.access_token }}
@@ -134,7 +134,7 @@ jobs:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         if: ${{ steps.tidal_auth.outputs.access_token == secrets.TIDAL_ACCESS_TOKEN }}
         run: |
-          gh secret set -a actions -f tidal_secrets.env
+          gh secret set -a actions -f secrets.env
       - name: Generate datetime codes
         id: dt_codes
         shell: bash
