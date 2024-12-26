@@ -1,5 +1,5 @@
 import os
-from utils import panic, run_command
+from modules.utils import panic, run_command
 
 select = os.environ["COMMANDS"]
 query = os.environ["QUERY"]
