@@ -35,11 +35,10 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
-          cache-dependency-path: 'requirements.txt'
+          cache-dependency-path: 'modules/**/requirements.txt'
       - name: Install python dependencies
         run: |
-          python -m pip install -U pip
-          python -m pip install -U spotdl
+          python -m pip install -r modules/spotdl/requirements.txt
       - name: Set up FFmpeg
         id: setup_ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
@@ -58,7 +57,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
         shell: bash
         run: |
-          python spotdl_module.py
+          python modules/spotdl/run.py
       - name: Generate datetime codes
         id: dt_codes
         shell: bash
@@ -76,5 +75,7 @@ jobs:
       - name: Print artifact info
         shell: bash
         run: |
-          echo "[INFO] artifact-id: ${{ steps.artifact.outputs.artifact-id }}"
-          echo "[INFO] artifact-url: ${{ steps.artifact.outputs.artifact-url }}"
+          echo "[INFO] artifact-id:\n"
+          echo "${{ steps.artifact.outputs.artifact-id }}"
+          echo "[INFO] artifact-url:\n"
+          echo "${{ steps.artifact.outputs.artifact-url }}"
