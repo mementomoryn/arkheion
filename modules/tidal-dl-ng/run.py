@@ -1,4 +1,5 @@
 import os
+import subprocess
 from modules.utils import panic, run_command
 
 select = os.environ["COMMAND"]
@@ -36,7 +37,7 @@ command.append(cli_commands(select))
 if select == "DOWNLOAD":
   command.append(query.strip())
 
-run_command(command)
+subprocess.run(command).check_returncode()
 
 # if os.path.exists("music") is False:
     # panic("[ERROR] Downloads folder does not exist")
