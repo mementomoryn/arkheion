@@ -118,25 +118,21 @@ jobs:
       - name: Check update of TIDAL credentials
         id: tidal_auth
         run: |
-          if [ $(tq -f modules/streamrip/config.toml 'tidal.access_token') == "${{ secrets.TIDAL_ACCESS_TOKEN }}" ]; then
-            echo "update=true" >> $GITHUB_OUTPUT
-          else
-            echo "update=false" >> $GITHUB_OUTPUT
-          fi
+          echo "access_token=$(tq -f modules/streamrip/config.toml 'tidal.access_token')" >> $GITHUB_OUTPUT
       - name: Write TIDAL credentials to file
-        if: ${{ steps.tidal_auth.outputs.update == 'true' }}
+        if: ${{ steps.tidal_auth.outputs.access_token == secrets.TIDAL_ACCESS_TOKEN }}
         run: |
           cat > tidal_secrets.env <<EOF
           TIDAL_USER_ID=$(tq -f modules/streamrip/config.toml 'tidal.user_id')
           TIDAL_COUNTRY_CODE=$(tq -f modules/streamrip/config.toml 'tidal.country_code')
-          TIDAL_ACCESS_TOKEN=(tq -f modules/streamrip/config.toml 'tidal.access_token')
+          TIDAL_ACCESS_TOKEN=${{ steps.tidal_auth.outputs.access_token }}
           TIDAL_REFRESH_TOKEN=$(tq -f modules/streamrip/config.toml 'tidal.refresh_token')
           TIDAL_TOKEN_EXPIRY=$(tq -f modules/streamrip/config.toml 'tidal.token_expiry')
           EOF
       - name: Set secrets
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-        if: ${{ steps.tidal_auth.outputs.update == 'true' }}
+        if: ${{ steps.tidal_auth.outputs.access_token == secrets.TIDAL_ACCESS_TOKEN }}
         run: |
           gh secret set -a actions -f tidal_secrets.env
       - name: Generate datetime codes
