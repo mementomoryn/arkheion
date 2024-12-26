@@ -75,18 +75,18 @@ jobs:
       - name: Get PCKE token secret
         id: pcke
         run: |
-          echo "client_secret=$(jq .client_secret '$HOME/.config/tidal-dl-ng/token.json')" >> $GITHUB_OUTPUT
+          echo "client_secret=$(jq .client_secret 'home/runner/.config/tidal-dl-ng/token.json')" >> $GITHUB_OUTPUT
       - name: Write PCKE token to file
         env:
           TIDAL_CLIENT_SECRET: ${{ secrets.TIDAL_CLIENT_SECRET }}
         if: ${{ steps.pcke.outputs.client_secret != env.TIDAL_CLIENT_SECRET }}
         run: |
           cat > secrets.env <<EOF
-          TIDAL_PLATFORM=$(jq .platform '$HOME/.config/tidal-dl-ng/token.json')
-          TIDAL_FORMATS=$(jq .formats '$HOME/.config/tidal-dl-ng/token.json')
-          TIDAL_CLIENT_ID=$(jq .clientId '$HOME/.config/tidal-dl-ng/token.json')
+          TIDAL_PLATFORM=$(jq .platform 'home/runner/.config/tidal-dl-ng/token.json')
+          TIDAL_FORMATS=$(jq .formats 'home/runner/.config/tidal-dl-ng/token.json')
+          TIDAL_CLIENT_ID=$(jq .clientId 'home/runner/.config/tidal-dl-ng/token.json')
           TIDAL_CLIENT_SECRET=${{ steps.pcke.outputs.client_secret }}
-          TIDAL_VALID=$(jq .valid '$HOME/.config/tidal-dl-ng/token.json')
+          TIDAL_VALID=$(jq .valid 'home/runner/.config/tidal-dl-ng/token.json')
           EOF
       - name: Set secrets
         env:
