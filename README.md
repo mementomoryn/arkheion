@@ -1,8 +1,8 @@
 # Arkheion
 
-_**Ever feel annoyed of missing songs you once liked because it's removed from music streaming services?**_
+_**Ever feel annoyed of missing songs you once liked because it's removed from music streaming platforms?**_
 
-Rest assured, **Arkheion** support downloading from various music streaming services.
+Rest assured, **Arkheion** support downloading from various music streaming platforms.
 
 **Arkheion** collects multiple python scripts to download songs, albums, playlists, etc in the best quality.
 
@@ -20,7 +20,9 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 2. Open the repository [Actions page](../../actions).
 3. Pick one of the [_module_](#modules) workflows you wanted to use (e.g. Streamrip).
 4. Press the `run workflow` button and fill out the inputs info.
-5. Done!
+5. Open _workflow run_ with your github account as the name, and wait until the _run_ is completed.
+6. Download the artifacts.
+7. Done!
 
 > [!IMPORTANT]
 > To request downloads, you must have collaborator access.
@@ -49,5 +51,5 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 | Spotify       | Fallback [^2] |
 | YouTube Music | Direct[^1]    |
 
-[^1]: Downloads directly from respective services.
-[^2]: Downloads duplicate from other services.
+[^1]: Downloads directly from respective sources.
+[^2]: Downloads duplicate from other sources.
