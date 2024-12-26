@@ -114,7 +114,7 @@ jobs:
           CODEC: ${{ inputs.codec }}
         shell: bash
         run: |
-          python streamrip_module.py
+          python modules/streamrip/run.py
       - name: Check update of TIDAL credentials
         id: tidal_auth
         run: |
