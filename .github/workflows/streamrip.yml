@@ -115,7 +115,7 @@ jobs:
           files: '["modules/streamrip/config.toml"]'
       - name: Run command
         env:
-          COMMANDS: ${{ inputs.command }}
+          COMMAND: ${{ inputs.command }}
           SERVICE: ${{ inputs.service }}
           TYPE: ${{ inputs.type }}
           QUERY: ${{ inputs.query }}
