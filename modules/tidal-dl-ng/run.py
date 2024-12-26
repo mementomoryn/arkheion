@@ -3,6 +3,14 @@ from utils import panic, run_command
 
 select = os.environ["COMMANDS"]
 query = os.environ["QUERY"]
+quality = os.environ["QUALITY"]
+
+config_file = "'modules/tidal-dl-ng/config.json'"
+if os.path.isfile(config_file) == True:
+  run_command(["mv", config_file, "'$HOME/.config/tidal_dl_ng/settings.json'"])
+
+if quality != "":
+    run_command(["tdn", "cfg", "quality_audio", quality.replace(" ", "_")])
 
 def cli_commands(select):
     match (select):
