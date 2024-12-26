@@ -15,6 +15,17 @@ on:
         description: Set queries to download
         required: true
         type: string
+      quality:
+        description: Select downloaded audio quality
+        required: true
+        type: choice
+        options:
+          - LOW
+          - HIGH
+          - LOSSLESS
+          - HI_RES_LOSSLESS
+          - AUTO
+        default: AUTO
 
 permissions:
   actions: write
@@ -44,6 +55,7 @@ jobs:
         env:
           COMMAND: ${{ inputs.command }}
           QUERY: ${{ inputs.query }}
+          QUALITY: ${{ inputs.quality }}
         shell: bash
         run: |
           tdn login --help
