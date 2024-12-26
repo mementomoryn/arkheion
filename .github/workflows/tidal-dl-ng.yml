@@ -58,11 +58,11 @@ jobs:
           tokenSuffix: ']]'
           files: '["modules/tidal-dl-ng/token.json"]'
         env:
-          TIDAL_PLATFORM=${{ secrets.TIDAL_PLATFORM }}
-          TIDAL_FORMATS=${{ secrets.TIDAL_FORMATS }}
-          TIDAL_CLIENT_ID=${{ secrets.TIDAL_CLIENT_ID }}
-          TIDAL_CLIENT_SECRET=${{ secrets.TIDAL_CLIENT_SECRET }}
-          TIDAL_VALID=${{ secrets.TIDAL_VALID }}
+          TIDAL_PLATFORM="${{ secrets.TIDAL_PLATFORM }}"
+          TIDAL_FORMATS="${{ secrets.TIDAL_FORMATS }}"
+          TIDAL_CLIENT_ID="${{ secrets.TIDAL_CLIENT_ID }}"
+          TIDAL_CLIENT_SECRET="${{ secrets.TIDAL_CLIENT_SECRET }}"
+          TIDAL_VALID="${{ secrets.TIDAL_VALID }}"
       - name: Run command
         env:
           COMMAND: ${{ inputs.command }}
