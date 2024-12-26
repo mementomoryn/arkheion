@@ -23,7 +23,7 @@ on:
           - LOW
           - HIGH
           - LOSSLESS
-          - HI_RES_LOSSLESS
+          - HI RES LOSSLESS
           - AUTO
         default: AUTO
 
