@@ -11,7 +11,7 @@ codec = os.environ["CODEC"]
 command = [
     'rip',
     '--config-path',
-    'configs/streamrip.toml'
+    'modules/streamrip/config.toml'
 ]
 
 if select != 'CONFIG RESET':
