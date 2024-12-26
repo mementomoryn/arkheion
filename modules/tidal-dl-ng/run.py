@@ -9,6 +9,10 @@ config_file = "'modules/tidal-dl-ng/config.json'"
 if os.path.isfile(config_file) == True:
   run_command(["mv", config_file, "'$HOME/.config/tidal_dl_ng/settings.json'"])
 
+token_file = "'modules/tidal-dl-ng/token.json'"
+if os.path.isfile(token_file) == True:
+  run_command(["mv", token_file, "'$HOME/.config/tidal_dl_ng/token.json'"])
+
 if quality != "AUTO":
     run_command(["tdn", "cfg", "quality_audio", quality.replace(" ", "_")])
 
