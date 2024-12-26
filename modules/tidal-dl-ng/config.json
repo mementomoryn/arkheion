@@ -1,0 +1,7 @@
+{
+  "album_track_num_pad_min": 1,
+  "cover_album_file": False,
+  "download_base_path": "music",
+  "download_delay": True,
+  "download_delay_sec_max": 5.0
+}
