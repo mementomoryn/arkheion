@@ -18,7 +18,7 @@ def cli_commands(select):
             return "dl"
         case "LOGIN":
             return "login"
-        case _
+        case _:
             panic("[ERROR] Unrecognizable commands")
 
 command = [
