@@ -13,6 +13,7 @@
   "format_playlist": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
   "format_track": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
   "format_video": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
+  "lyrics_embed": "True",
   "lyrics_file": "True",
   "metadata_cover_dimension": 1280,
   "metadata_cover_embed": "True"
