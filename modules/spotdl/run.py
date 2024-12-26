@@ -1,5 +1,5 @@
 import os
-from utils import panic, run_command
+from modules.utils import panic, run_command
 
 query = os.environ["QUERY"]
 query_untracked = query.split("si=")[0]
