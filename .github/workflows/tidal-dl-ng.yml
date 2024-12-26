@@ -46,7 +46,7 @@ jobs:
           QUERY: ${{ inputs.query }}
         shell: bash
         run: |
-          tdn cfg
+          tdn login --help
           python -m modules.tidal-dl-ng.run
       - name: Generate datetime codes
         id: dt_codes
