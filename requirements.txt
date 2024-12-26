@@ -1,0 +1,4 @@
+pip
+spotdl
+tidal-dl-ng
+streamrip @ git+https://github.com/nathom/streamrip.git@dev
