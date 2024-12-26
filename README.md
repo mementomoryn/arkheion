@@ -21,7 +21,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 3. Pick one of the [_module_](#modules) workflows you wanted to use (e.g. Streamrip).
 4. Press the `run workflow` button and fill out the inputs info.
 5. Open _workflow run_ with your github account as the name, and wait until the _run_ is completed.
-6. Download the artifacts.
+6. Download the _artifacts_.
 7. Done!
 
 > [!IMPORTANT]
