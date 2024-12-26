@@ -59,7 +59,7 @@ jobs:
           TIDAL_CLIENT_ID="${{ secrets.TIDAL_CLIENT_ID }}"
           TIDAL_CLIENT_SECRET="${{ secrets.TIDAL_CLIENT_SECRET }}"
           TIDAL_VALID="${{ secrets.TIDAL_VALID }}"
-        if: ${{ "env.TIDAL_CLIENT_ID" != "" }}
+        if: ${{ env.TIDAL_CLIENT_ID != "" }}
         uses: cschleiden/replace-tokens@master
         with:
           tokenPrefix: '[['
