@@ -12,7 +12,7 @@ on:
           - LOGIN
         default: DOWNLOAD
       query:
-        description: Set queries to download
+        description: Set queries to download (only used for download)
         required: true
         type: string
       quality:
