@@ -120,7 +120,9 @@ jobs:
         run: |
           echo "access_token=$(tq -f modules/streamrip/config.toml 'tidal.access_token')" >> $GITHUB_OUTPUT
       - name: Write TIDAL credentials to file
-        if: ${{ steps.tidal_auth.outputs.access_token == secrets.TIDAL_ACCESS_TOKEN }}
+        env:
+          TIDAL_ACCESS_TOKEN: ${{ secrets.TIDAL_ACCESS_TOKEN }}
+        if: ${{ steps.tidal_auth.outputs.access_token != env.TIDAL_ACCESS_TOKEN }}
         run: |
           cat > secrets.env <<EOF
           TIDAL_USER_ID=$(tq -f modules/streamrip/config.toml 'tidal.user_id')
@@ -132,7 +134,8 @@ jobs:
       - name: Set secrets
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-        if: ${{ steps.tidal_auth.outputs.access_token == secrets.TIDAL_ACCESS_TOKEN }}
+          TIDAL_ACCESS_TOKEN: ${{ secrets.TIDAL_ACCESS_TOKEN }}
+        if: ${{ steps.tidal_auth.outputs.access_token != env.TIDAL_ACCESS_TOKEN }}
         run: |
           gh secret set -a actions -f secrets.env
       - name: Generate datetime codes
