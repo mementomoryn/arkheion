@@ -51,6 +51,18 @@ jobs:
         with:
           version: release
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Assign credentials secrets
+        uses: cschleiden/replace-tokens@master
+        with:
+          tokenPrefix: '[['
+          tokenSuffix: ']]'
+          files: '["modules/tidal-dl-ng/token.json"]'
+        env:
+          TIDAL_PLATFORM=${{ secrets.TIDAL_PLATFORM }}
+          TIDAL_FORMATS=${{ secrets.TIDAL_FORMATS }}
+          TIDAL_CLIENT_ID=${{ secrets.TIDAL_CLIENT_ID }}
+          TIDAL_CLIENT_SECRET=${{ secrets.TIDAL_CLIENT_SECRET }}
+          TIDAL_VALID=${{ secrets.TIDAL_VALID }}
       - name: Run command
         env:
           COMMAND: ${{ inputs.command }}
@@ -78,8 +90,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         run: |
-          gh secret set -a actions -f secrets.env
-        
+          gh secret set -a actions -f secrets.env    
       - name: Generate datetime codes
         id: dt_codes
         shell: bash
