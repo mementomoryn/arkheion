@@ -29,7 +29,7 @@ command = [
     'tdn'
 ]
 
-command.append(map(cli_commands, select))
+command.append(cli_commands(select))
 
 if select == "DOWNLOAD":
   command.append(query.strip())
