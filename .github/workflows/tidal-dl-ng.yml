@@ -44,7 +44,8 @@ jobs:
           cache-dependency-path: 'requirements.txt'
       - name: Install python dependencies
         run: |
-          python -m pip install -r requirements.txt
+          python -m pip install -U pip
+          python -m pip install -U tidal-dl-ng
       - name: Set up FFmpeg
         id: setup_ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
@@ -58,7 +59,7 @@ jobs:
           TIDAL_CLIENT_ID=${{ secrets.TIDAL_CLIENT_ID }}
           TIDAL_CLIENT_SECRET=${{ secrets.TIDAL_CLIENT_SECRET }}
           TIDAL_VALID=${{ secrets.TIDAL_VALID }}
-        if: ${{ env.TIDAL_CLIENT_ID != '' }}
+        if: ${{ "env.TIDAL_CLIENT_ID" != "" }}
         uses: cschleiden/replace-tokens@master
         with:
           tokenPrefix: '[['
