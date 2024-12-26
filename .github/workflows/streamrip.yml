@@ -37,7 +37,7 @@ on:
         required: true
         type: string
       quality:
-        description: Select downloaded songs quality (quality depends on the source)
+        description: Select downloaded audio quality (depends on the source)
         required: false
         type: choice
         options:
