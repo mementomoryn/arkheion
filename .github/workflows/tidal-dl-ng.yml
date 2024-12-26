@@ -53,14 +53,14 @@ jobs:
           version: release
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Assign credentials secrets
-        env:
-          TIDAL_PLATFORM="${{ secrets.TIDAL_PLATFORM }}"
-          TIDAL_FORMATS="${{ secrets.TIDAL_FORMATS }}"
-          TIDAL_CLIENT_ID="${{ secrets.TIDAL_CLIENT_ID }}"
-          TIDAL_CLIENT_SECRET="${{ secrets.TIDAL_CLIENT_SECRET }}"
-          TIDAL_VALID="${{ secrets.TIDAL_VALID }}"
-        if: ${{ env.TIDAL_CLIENT_ID != '' }}
         uses: cschleiden/replace-tokens@master
+        env:
+          TIDAL_PLATFORM=${{ secrets.TIDAL_PLATFORM }}
+          TIDAL_FORMATS=${{ secrets.TIDAL_FORMATS }}
+          TIDAL_CLIENT_ID=${{ secrets.TIDAL_CLIENT_ID }}
+          TIDAL_CLIENT_SECRET=${{ secrets.TIDAL_CLIENT_SECRET }}
+          TIDAL_VALID=${{ secrets.TIDAL_VALID }}
+        if: ${{ env.TIDAL_CLIENT_ID != '' }}
         with:
           tokenPrefix: '[['
           tokenSuffix: ']]'
