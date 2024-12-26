@@ -42,7 +42,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run command
         env:
-          COMMANDS: ${{ inputs.command }}
+          COMMAND: ${{ inputs.command }}
           QUERY: ${{ inputs.query }}
         shell: bash
         run: |
