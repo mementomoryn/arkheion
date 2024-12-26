@@ -1,4 +1,4 @@
-name: TidalDL-NG
+name: TidalDLNG
 run-name: ${{ github.actor }}
 on:
   workflow_dispatch:
