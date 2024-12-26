@@ -107,7 +107,7 @@ jobs:
           TIDAL_ACCESS_TOKEN: "${{ secrets.TIDAL_ACCESS_TOKEN }}"
           TIDAL_REFRESH_TOKEN: "${{ secrets.TIDAL_REFRESH_TOKEN }}"
           TIDAL_TOKEN_EXPIRY: "${{ secrets.TIDAL_TOKEN_EXPIRY }}"
-        if: ${{ env.TIDAL_USER_ID != "" }}
+        if: ${{ env.TIDAL_USER_ID != '' }}
         uses: cschleiden/replace-tokens@master
         with:
           tokenPrefix: '[['
