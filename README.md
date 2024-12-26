@@ -51,7 +51,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 | Spotify       | Fallback [^2] |
 | YouTube Music | Direct[^1]    |
 
-### TidalDL-NG
+### TidalDLNG
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/exislow/tidal-dl-ng?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/exislow/tidal-dl-ng)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/tidal-dl-ng.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/workflows/tidal-dl-ng.yml)
