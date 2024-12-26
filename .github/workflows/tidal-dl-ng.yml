@@ -47,7 +47,7 @@ jobs:
         shell: bash
         run: |
           tdn cfg --help
-          python modules/tidal-dl-ng/run.py
+          python -m modules.tidal-dl-ng.run
       - name: Generate datetime codes
         id: dt_codes
         shell: bash
