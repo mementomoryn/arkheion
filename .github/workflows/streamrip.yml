@@ -75,10 +75,10 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
-          cache-dependency-path: 'modules/streamrip/requirements.txt'
+          cache-dependency-path: 'requirements.txt'
       - name: Install python dependencies
         run: |
-          python -m pip install -r modules/streamrip/requirements.txt
+          python -m pip install -r requirements.txt
       - name: Install tomlq
         uses: baptiste0928/cargo-install@v3
         with:
@@ -99,11 +99,19 @@ jobs:
           QOBUZ_USER_ID: "${{ secrets.QOBUZ_USER_ID }}"
           QOBUZ_TOKEN: "${{ secrets.QOBUZ_TOKEN }}"
           DEEZER_ARL: "${{ secrets.DEEZER_ARL }}"
+      - name: Assign credentials secrets
+        env:
           TIDAL_USER_ID: "${{ secrets.TIDAL_USER_ID }}"
           TIDAL_COUNTRY_CODE: "${{ secrets.TIDAL_COUNTRY_CODE }}"
           TIDAL_ACCESS_TOKEN: "${{ secrets.TIDAL_ACCESS_TOKEN }}"
           TIDAL_REFRESH_TOKEN: "${{ secrets.TIDAL_REFRESH_TOKEN }}"
           TIDAL_TOKEN_EXPIRY: "${{ secrets.TIDAL_TOKEN_EXPIRY }}"
+        if: ${{ env.TIDAL_USER_ID != "" }}
+        uses: cschleiden/replace-tokens@master
+        with:
+          tokenPrefix: '[['
+          tokenSuffix: ']]'
+          files: '["modules/streamrip/config.toml"]'
       - name: Run command
         env:
           COMMANDS: ${{ inputs.command }}
