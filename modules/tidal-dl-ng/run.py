@@ -1,7 +1,7 @@
 import os
 from modules.utils import panic, run_command
 
-select = os.environ["COMMANDS"]
+select = os.environ["COMMAND"]
 query = os.environ["QUERY"]
 quality = os.environ["QUALITY"]
 
