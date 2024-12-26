@@ -35,7 +35,7 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
-          cache-dependency-path: 'modules/**/requirements.txt'
+          cache-dependency-path: 'modules/spotdl/requirements.txt'
       - name: Install python dependencies
         run: |
           python -m pip install -r modules/spotdl/requirements.txt
