@@ -2,7 +2,7 @@ import os
 from utils import panic, run_command
 
 query = os.environ["QUERY"]
-query_untracked = query.split("?si=")[0]
+query_untracked = query.split("si=")[0]
 codec = os.environ["CODEC"]
 client_id = os.environ["CLIENT_ID"]
 client_secret = os.environ["CLIENT_SECRET"]
