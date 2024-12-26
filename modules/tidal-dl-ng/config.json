@@ -1,7 +1,23 @@
 {
   "album_track_num_pad_min": 1,
-  "cover_album_file": False,
+  "cover_album_file": "False",
   "download_base_path": "music",
-  "download_delay": True,
-  "download_delay_sec_max": 5.0
+  "download_delay": "True",
+  "download_delay_sec_max": 5.0,
+  "download_delay_sec_min": 3.0,
+  "downloads_concurrent_max": 3
+  "downloads_simultaneous_per_track_max": 20,
+  "extract_flac": "True",
+  "format_album": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
+  "format_mix": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
+  "format_playlist": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
+  "format_track": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
+  "format_video": "{album_artist}/{album_title} ({album_year})/{album_artist} - {track_title} {track_explicit}",
+  "lyrics_file": "True",
+  "metadata_cover_dimension": 1280,
+  "metadata_cover_embed": "True"
+  "quality_audio": "HI_RES_LOSSLESS",
+  "skip_existing": "False",
+  "symlink_to_track": "False",
+  "video_download": "False"
 }
