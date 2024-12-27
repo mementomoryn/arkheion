@@ -2,16 +2,16 @@
 
 _**Ever feel annoyed of missing songs you once liked because it's removed from music streaming platforms?**_
 
-Rest assured, **Arkheion** support downloading from various music streaming platforms.
+Rest assured, **Arkheion** support archiving from various music streaming platforms.
 
-**Arkheion** collects multiple python scripts to download songs, albums, playlists, etc in the best quality.
+**Arkheion** collects multiple python scripts to archive tracks, albums, playlists, etc in the best quality.
 
-With **Arkheion**, you can easily download favorite songs you wanted to archive.
+With **Arkheion**, you can easily archive your favorite songs.
 
 Why use **Arkheion** instead of running the scripts directly in your device:
 - Entirely ran with GitHub-hosted runners through Actions, so it's really fast.
 - Provide a simple input GUI, so it's much easier to use.
-- Downloads is uploaded as GitHub Artifacts, allowing you to share previously downloaded songs with just a link.
+- Uploaded as GitHub Artifacts, allowing you to share previously downloaded songs with just a link.
 - Works in practically every devices, as long as it could invoke GitHub Actions workflows 
 
 ## Usage
@@ -25,7 +25,7 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 7. Done!
 
 > [!IMPORTANT]
-> To request downloads, you must have collaborator access.
+> To request, you must have collaborator access.
 
 ## Modules
 
@@ -62,5 +62,5 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 | :------- | :---------  |
 | Tidal    | Direct [^1] |
 
-[^1]: Downloads directly from respective sources.
-[^2]: Downloads duplicate from other sources.
+[^1]: Archive directly from respective sources.
+[^2]: Archive matching duplicate from other sources.
