@@ -1,7 +1,7 @@
 import os
 from modules.utils import panic, run_command
 
-select = os.environ["COMMANDS"]
+select = os.environ["COMMAND"]
 service = os.environ["SERVICE"]
 type = os.environ["TYPE"]
 query = os.environ["QUERY"]
