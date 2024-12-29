@@ -35,7 +35,7 @@ jobs:
       - name: Default workflows retain days
         id: retain_days
         run: |
-          if [ ${{ github.event }} == 'schedule' ]; then
+          if [ ${{ github.event_name }} == 'schedule' ]; then
             echo "days=7" >> $GITHUB_OUTPUT
           else
             echo "days=${{ inputs.retain-days }}" >> $GITHUB_OUTPUT
