@@ -17,7 +17,7 @@ if itag != 'AUTO':
 
 query_untracked_list = query_untracked.split('&&')
 
-command.append(' '.join('"' + map(str.strip, query_untracked_list + '"')))
+command.append(' '.join('"' + map(str.strip, query_untracked_list) + '"'))
 
 run_command(command)
 
