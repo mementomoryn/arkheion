@@ -65,6 +65,7 @@ jobs:
           QUALITY: ${{ inputs.quality }}
         shell: bash
         run: |
+          mkdir -p music
           python -u -m modules.zotify.run
       - name: Generate datetime codes
         id: dt_codes

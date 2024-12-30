@@ -69,6 +69,7 @@ jobs:
           QUALITY: ${{ inputs.quality }}
         shell: bash
         run: |
+          mkdir -p music
           python -u -m modules.tidal-dl-ng.run
       - name: Get PCKE token secret
         id: pcke

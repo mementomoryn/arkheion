@@ -53,6 +53,7 @@ jobs:
           ITAG: ${{ inputs.itag }}
         shell: bash
         run: |
+          mkdir -p music
           python -u -m modules.gytmdl.run
       - name: Generate datetime codes
         id: dt_codes

@@ -56,6 +56,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
         shell: bash
         run: |
+          mkdir -p music
           python -u -m modules.spotdl.run
       - name: Generate datetime codes
         id: dt_codes
