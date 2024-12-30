@@ -10,7 +10,7 @@ codec = os.environ["CODEC"]
 
 query_list = query.split('&&')
 
-for index in query_list:
+for query in query_list:
     command = [
         'rip',
         '--config-path',
@@ -33,7 +33,7 @@ for index in query_list:
             command.append(service.lower())
             command.append(type.lower())
 
-        command.append('"' + query_list[index].strip() + '"')
+        command.append('"' + query.strip() + '"')
 
     run_command(command)
 
