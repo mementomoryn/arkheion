@@ -4,16 +4,16 @@
 
 _**Pernah kesal karena lagu favorit kamu hilang dari platform streaming musik?**_
 
-Tenang, **Arkheion** bisa download dari berbagai platform streaming musik.
+Tenang aja, **Arkheion** bisa download dari berbagai platform streaming musik.
 
-**Arkheion** mengumpulkan beberapa aplikasi python untuk download track, album, playlist, dll dengan kualitas yang terbaik.
+**Arkheion** mengumpulkan beberapa aplikasi python sehingga bisa download track, album, playlist, dll dengan kualitas terbaik.
 
-Dengan **Arkheion**, kamu bisa dengan mudah download lagu favorit kamu.
+Dengan **Arkheion**, kamu bisa dengan mudah download lagu favoritmu.
 
-Kenapa pakai **Arkheion** dibanding menjalankan aplikasi langsung di perangkat kamu:
+Kenapa pilih **Arkheion** dibanding menjalankan aplikasi langsung di perangkatmu:
 
 - Dijalankan dengan runner GitHub Actions, jadi prosesnya cepat banget.
-- Ada interface input yang sederhana, membuat ini lebih mudah dipakai.
+- Ada interface input yang sederhana, buat ini lebih mudah dipakai.
 - Diunggah sebagai GitHub Artifacts, jadi kamu bisa share apa yang sudah didownload hanya dengan link.
 - Bisa dipakai untuk hampir semua perangkat, selama bisa menjalankan alur kerja GitHub Actions.
 
@@ -72,4 +72,4 @@ Kenapa pakai **Arkheion** dibanding menjalankan aplikasi langsung di perangkat k
 | Tidal    | Direct [^1] |
 
 [^1]: Arsip langsung dari platform yang kamu pilih.
-[^2]: Arsip mencari duplikat dari platform yang lain.
+[^2]: Arsip duplikat yang cocok dari platform yang lain.
