@@ -44,7 +44,7 @@ jobs:
       - name: Decode cookies file
         shell: bash
         run: |
-          base64 -d <<< "${{ secrets.YTMUSIC_COOKIE_BASE64 }}" > cookies.txt
+          base64 -d <<< "${{ secrets.SPOTIFY_COOKIE_BASE64 }}" > cookies.txt
       - name: Decode widevine file
         shell: bash
         run: |
