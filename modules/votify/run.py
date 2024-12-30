@@ -8,7 +8,7 @@ quality = os.environ["QUALITY"]
 command = [
     'votify'
     '--config-path',
-    'modules/votify/config.json'
+    r"'modules/votify/config.json'"
 ]
 
 if quality != 'AUTO':

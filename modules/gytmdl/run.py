@@ -8,7 +8,7 @@ itag = os.environ["ITAG"]
 command = [
     'gytmdl'
     '--config-path',
-    'modules/gytmdl/config.json'
+    r"'modules/votify/config.json'"
 ]
 
 if itag != 'AUTO':
