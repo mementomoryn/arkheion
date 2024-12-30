@@ -12,7 +12,7 @@ Dengan **Arkheion**, kamu bisa dengan mudah download lagu favoritmu.
 
 Kenapa pilih **Arkheion** dibanding menjalankan aplikasi langsung di perangkatmu:
 
-- Dijalankan dengan runner GitHub Actions, jadi prosesnya cepat banget.
+- Dijalankan dengan runner dari GitHub Actions, jadi prosesnya cepat banget.
 - Ada interface input yang sederhana, buat ini lebih mudah dipakai.
 - Diunggah sebagai GitHub Artifacts, jadi kamu bisa share apa yang sudah didownload hanya dengan link.
 - Bisa dipakai untuk hampir semua perangkat, selama bisa menjalankan alur kerja GitHub Actions.
@@ -23,12 +23,12 @@ Kenapa pilih **Arkheion** dibanding menjalankan aplikasi langsung di perangkatmu
 2. Buka halaman [Actions](../../actions).
 3. Pilih salah satu alur kerja [_modul_](#modules) yang kamu mau pakai (misalnya Streamrip).
 4. Tekan tombol `run workflow` dan isi informasi.
-5. Buka _workflow run_ yang udah kamu jalankan, dan tunggu sampai prosesnya selesai.
-6. Unduh _artifacts_.
+5. Buka _workflow run_ yang sebelumnya kamu jalankan, dan tunggu sampai prosesnya selesai.
+6. Download _artifacts_.
 7. Selesai!
 
 > [!IMPORTANT]
-> Untuk request dan download, kamu perlu punya akses collaborator.
+> Untuk request dan download, kamu perlu punya akses kolaborator.
 
 ## Modul
 
