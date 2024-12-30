@@ -53,7 +53,9 @@ else:
 
 command.append('download')
 
-command.append(query_untracked.strip())
+query_untracked_list = query_untracked.split('&&')
+
+command.append(' '.join('"' + query_untracked_list.strip() + '"'))
 
 command.append('--output')
 command.append(output_path)

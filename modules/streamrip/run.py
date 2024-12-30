@@ -8,31 +8,34 @@ query = os.environ["QUERY"]
 quality = os.environ["QUALITY"]
 codec = os.environ["CODEC"]
 
-command = [
-    'rip',
-    '--config-path',
-    'modules/streamrip/config.toml'
-]
+query_list = query.split('&&')
 
-if select != 'CONFIG RESET':
-    if quality != 'AUTO':
-        command.append('--quality')
-        command.append(int(quality))
-            
-    if codec != 'ORIGINAL':
-        command.append('--codec')
-        command.append(codec.lower())
+for index in query_list:
+    command = [
+        'rip',
+        '--config-path',
+        'modules/streamrip/config.toml'
+    ]
 
-    command.append(select.lower())
+    if select != 'CONFIG RESET':
+        if quality != 'AUTO':
+            command.append('--quality')
+            command.append(int(quality))
+                
+        if codec != 'ORIGINAL':
+            command.append('--codec')
+            command.append(codec.lower())
 
-    if select == 'SEARCH':
-        command.append('--first')
-        command.append(service.lower())
-        command.append(type.lower())
+        command.append(select.lower())
 
-    command.append(query.strip())
+        if select == 'SEARCH':
+            command.append('--first')
+            command.append(service.lower())
+            command.append(type.lower())
 
-run_command(command)
+        command.append('"' + query_list[index].strip() + '"')
+
+    run_command(command)
 
 # if os.path.exists("music") is False:
     # panic("[ERROR] Downloads folder does not exist")
