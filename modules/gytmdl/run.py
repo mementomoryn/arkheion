@@ -8,7 +8,7 @@ itag = os.environ["ITAG"]
 command = [
     'gytmdl'
     '--config-path',
-    'modules/gytmdl/config.toml'
+    'modules/gytmdl/config.json'
 ]
 
 if itag != 'AUTO':
