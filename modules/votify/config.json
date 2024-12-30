@@ -7,14 +7,13 @@
 	"wvd_path": "widevinecdm.wvd",
 	"audio_quality": "aac-medium",
 	"cover_size": "extra-large",
-	"template_folder_album": "{artist}/{album} ({date})",
-	"template_folder_compilation": "{artist}/{album} ({date})",
-	"template_folder_episode": "{artist}/{album} ({date})",
-	"template_folder_music_video": "{artist}/{album} ({date})",
+	"template_folder_album": "{artist}/{album} ({release_year})",
+	"template_folder_compilation": "{artist}/{album} ({release_year})",
+	"template_folder_episode": "{artist}/{album} ({release_year})",
+	"template_folder_music_video": "{artist}/{album} ({release_year})",
 	"template_file_single_disc": "{artist} - {title}",
 	"template_file_multi_disc": "{artist} - {title}",
 	"template_file_episode": "{artist} - {title}",
 	"template_file_music_video": "{artist} - {title}",
-	"date_tag_template": "%Y",
 	"lrc_only": true
 }
