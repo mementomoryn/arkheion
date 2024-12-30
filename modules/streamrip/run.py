@@ -14,7 +14,7 @@ for query in query_list:
     command = [
         'rip',
         '--config-path',
-        'modules/streamrip/config.toml'
+        r"'modules/streamrip/config.toml'"
     ]
 
     if select != 'CONFIG RESET':

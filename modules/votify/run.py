@@ -13,7 +13,7 @@ command = [
 
 if quality != 'AUTO':
     command.append('--audio-quality')
-    command.append(quality)
+    command.append(quality.lower())
 
 query_untracked_list = query_untracked.split('&&')
 
