@@ -17,7 +17,7 @@ Kenapa pilih **Arkheion** dibanding menjalankan aplikasi langsung di perangkatmu
 - Diunggah sebagai GitHub Artifacts, jadi kamu bisa share apa yang sudah didownload hanya dengan link.
 - Bisa dipakai untuk hampir semua perangkat, selama bisa menjalankan alur kerja GitHub Actions.
 
-## Cara Pakai
+## Penggunaan
 
 1. [Star](../../stargazers) repositori ini 🌟
 2. Buka halaman [Actions](../../actions).
