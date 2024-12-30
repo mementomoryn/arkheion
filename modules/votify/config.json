@@ -1,6 +1,5 @@
 {
 	"wait_interval": 5,
-	"overwrite": true,
 	"no_exceptions": false,
 	"output_path": "music",
 	"cookies_path": "cookies.txt",
