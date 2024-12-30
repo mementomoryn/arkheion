@@ -19,7 +19,7 @@ Kenapa pilih **Arkheion** dibanding menjalankan aplikasi langsung di perangkatmu
 
 ## Cara Pakai
 
-1. Beri [star](../../stargazers) untuk repositori ini 🌟
+1. [Star](../../stargazers) repositori ini 🌟
 2. Buka halaman [Actions](../../actions).
 3. Pilih salah satu alur kerja [_modul_](#modules) yang kamu mau pakai (misalnya Streamrip).
 4. Tekan tombol `run workflow` dan isi informasi.
