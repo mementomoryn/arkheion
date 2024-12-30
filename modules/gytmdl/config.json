@@ -1,0 +1,11 @@
+{
+	"overwrite": true,
+	"print_exceptions": true,
+	"output_path": "music",
+	"cookies_path": "cookies.txt",
+	"itag": 251,
+	"cover_format": "raw",
+	"template_folder": "{artist}/{album} ({date})",
+	"template_file": "{artist} - {title}",
+	"template_date": "%Y"
+}

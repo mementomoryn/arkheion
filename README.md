@@ -60,6 +60,30 @@ Why use **Arkheion** instead of running the scripts directly in your device:
 > [!TIP]
 > To download multiple at the same time, you should use '&&' (without the quotes) between the queries.
 
+### gYTMdl
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/glomatico/gytmdl?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/glomatico/gytmdl)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/gytmdl.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/workflows/gytmdl.yml)
+
+| Services      | Sources    |
+| :------------ | :--------- |
+| YouTube Music | Direct[^1] |
+
+> [!TIP]
+> To download multiple at the same time, you should use '&&' (without the quotes) between the queries.
+
+### Votify
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/glomatico/votify?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/glomatico/votify)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/votify.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/workflows/votify.yml)
+
+| Services | Sources    |
+| :------- | :--------- |
+| Spotify  | Direct[^1] |
+
+> [!TIP]
+> To download multiple at the same time, you should use '&&' (without the quotes) between the queries.
+
 ### TidalDLNG
 
 > Broken, no support for custom paths

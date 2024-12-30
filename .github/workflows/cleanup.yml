@@ -1,4 +1,4 @@
-name: "[CHORE] Cleanup"
+name: '[CHORE] Cleanup'
 run-name: Cleanup
 on:
   schedule:

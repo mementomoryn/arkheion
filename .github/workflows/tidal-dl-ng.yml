@@ -26,11 +26,9 @@ on:
           - HI RES LOSSLESS
           - AUTO
         default: AUTO
-
 permissions:
   actions: write
   contents: read
-
 jobs:
   downloads:
     runs-on: ubuntu-latest
@@ -59,11 +57,11 @@ jobs:
           tokenSuffix: ']]'
           files: '["modules/tidal-dl-ng/token.json"]'
         env:
-          TIDAL_PLATFORM: "${{ secrets.TIDAL_PLATFORM }}"
-          TIDAL_FORMATS: "${{ secrets.TIDAL_FORMATS }}"
-          TIDAL_CLIENT_ID: "${{ secrets.TIDAL_CLIENT_ID }}"
-          TIDAL_CLIENT_SECRET: "${{ secrets.TIDAL_CLIENT_SECRET }}"
-          TIDAL_VALID: "${{ secrets.TIDAL_VALID }}"
+          TIDAL_PLATFORM: '${{ secrets.TIDAL_PLATFORM }}'
+          TIDAL_FORMATS: '${{ secrets.TIDAL_FORMATS }}'
+          TIDAL_CLIENT_ID: '${{ secrets.TIDAL_CLIENT_ID }}'
+          TIDAL_CLIENT_SECRET: '${{ secrets.TIDAL_CLIENT_SECRET }}'
+          TIDAL_VALID: '${{ secrets.TIDAL_VALID }}'
       - name: Run command
         env:
           COMMAND: ${{ inputs.command }}
@@ -75,26 +73,27 @@ jobs:
       - name: Get PCKE token secret
         id: pcke
         run: |
-          echo "client_secret=$(jq .client_secret 'home/runner/.config/tidal-dl-ng/token.json')" >> $GITHUB_OUTPUT
+          cat '/home/runner/.config/tidal-dl-ng/token.json' > 'modules/tidal-dl-ng/token.json'
+          echo "client_secret=$(jq .client_secret 'modules/tidal-dl-ng/token.json')" >> $GITHUB_OUTPUT
       - name: Write PCKE token to file
         env:
-          TIDAL_CLIENT_SECRET: ${{ secrets.TIDAL_CLIENT_SECRET }}
+          TIDAL_CLIENT_SECRET: '${{ secrets.TIDAL_CLIENT_SECRET }}'
         if: ${{ steps.pcke.outputs.client_secret != env.TIDAL_CLIENT_SECRET }}
         run: |
           cat > secrets.env <<EOF
-          TIDAL_PLATFORM=$(jq .platform 'home/runner/.config/tidal-dl-ng/token.json')
-          TIDAL_FORMATS=$(jq .formats 'home/runner/.config/tidal-dl-ng/token.json')
-          TIDAL_CLIENT_ID=$(jq .clientId 'home/runner/.config/tidal-dl-ng/token.json')
+          TIDAL_PLATFORM=$(jq .platform 'modules/tidal-dl-ng/token.json')
+          TIDAL_FORMATS=$(jq .formats 'modules/tidal-dl-ng/token.json')
+          TIDAL_CLIENT_ID=$(jq .clientId 'modules/tidal-dl-ng/token.json')
           TIDAL_CLIENT_SECRET=${{ steps.pcke.outputs.client_secret }}
-          TIDAL_VALID=$(jq .valid 'home/runner/.config/tidal-dl-ng/token.json')
+          TIDAL_VALID=$(jq .valid 'modules/tidal-dl-ng/token.json')
           EOF
       - name: Set secrets
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-          TIDAL_CLIENT_SECRET: ${{ secrets.TIDAL_CLIENT_SECRET }}
+          TIDAL_CLIENT_SECRET: '${{ secrets.TIDAL_CLIENT_SECRET }}'
         if: ${{ steps.pcke.outputs.client_secret != env.TIDAL_CLIENT_SECRET }}
         run: |
-          gh secret set -a actions -f secrets.env    
+          gh secret set -a actions -f secrets.env
       - name: Generate datetime codes
         id: dt_codes
         shell: bash

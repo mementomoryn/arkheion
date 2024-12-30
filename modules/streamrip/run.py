@@ -22,9 +22,9 @@ for index in query_list:
             command.append('--quality')
             command.append(int(quality))
                 
-        if codec != 'ORIGINAL':
-            command.append('--codec')
-            command.append(codec.lower())
+        # if codec != 'ORIGINAL':
+        #     command.append('--codec')
+        #     command.append(codec.lower())
 
         command.append(select.lower())
 

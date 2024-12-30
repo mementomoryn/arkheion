@@ -1,4 +1,4 @@
-name: SpotDL
+name: Votify
 run-name: ${{ github.actor }}
 on:
   workflow_dispatch:
@@ -7,19 +7,16 @@ on:
         description: Set queries to download
         required: true
         type: string
-      codec:
-        description: Select downloaded audio format
+      quality:
+        description: Select downloaded audio quality
         required: false
         type: choice
         options:
-          - FLAC
-          - WAV
-          - OPUS
-          - OGG
-          - M4A
-          - MP3
-          - ORIGINAL
-        default: ORIGINAL
+          - 'VORBIS-MEDIUM'
+          - 'VORBIS-LOW'
+          - 'AAC-MEDIUM'
+          - AUTO
+        default: AUTO
 permissions:
   actions: write
   contents: read
@@ -37,7 +34,7 @@ jobs:
       - name: Install python dependencies
         run: |
           python -m pip install -U pip
-          python -m pip install -U spotdl
+          python -m pip install -U votify
       - name: Set up FFmpeg
         id: setup_ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
@@ -48,15 +45,17 @@ jobs:
         shell: bash
         run: |
           base64 -d <<< "${{ secrets.YTMUSIC_COOKIE_BASE64 }}" > cookies.txt
+      - name: Decode widevine file
+        shell: bash
+        run: |
+          base64 -d <<< "${{ secrets.WIDEVINE_CDM_BASE64 }}" > widevinecdm.wvd
       - name: Run command
         env:
           QUERY: ${{ inputs.query }}
-          CODEC: ${{ inputs.codec }}
-          CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          QUALITY: ${{ inputs.quality }}
         shell: bash
         run: |
-          python -u -m modules.spotdl.run
+          python -u -m modules.votify.run
       - name: Generate datetime codes
         id: dt_codes
         shell: bash
@@ -66,7 +65,7 @@ jobs:
         id: artifact
         uses: actions/upload-artifact@v4
         with:
-          name: spotdl-downloads-${{ steps.dt_codes.outputs.dtcode }}
+          name: votify-downloads-${{ steps.dt_codes.outputs.dtcode }}
           path: music
           if-no-files-found: error
           retention-days: 7

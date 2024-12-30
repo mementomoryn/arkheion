@@ -1,0 +1,20 @@
+{
+	"wait_interval": 5,
+	"overwrite": true,
+	"no_exceptions": false,
+	"output_path": "music",
+	"cookies_path": "cookies.txt",
+	"wvd_path": "widevinecdm.wvd",
+	"audio_quality": "vorbis-medium",
+	"cover_size": "extra-large",
+	"template_folder_album": "{artist}/{album} ({date})",
+	"template_folder_compilation": "{artist}/{album} ({date})",
+	"template_folder_episode": "{artist}/{album} ({date})",
+	"template_folder_music_video": "{artist}/{album} ({date})",
+	"template_file_single_disc": "{artist} - {title}",
+	"template_file_multi_disc": "{artist} - {title}",
+	"template_file_episode": "{artist} - {title}",
+	"template_file_music_video": "{artist} - {title}",
+	"date_tag_template": "%Y",
+	"lrc_only": true
+}

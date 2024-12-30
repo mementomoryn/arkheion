@@ -40,7 +40,7 @@ command = [
     '--generate-lrc',
     '--print-errors',
     '--log-level',
-    'DEBUG',
+    'INFO',
      '--cookie-file',
      'cookies.txt'
 ]

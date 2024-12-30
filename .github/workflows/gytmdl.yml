@@ -1,4 +1,4 @@
-name: SpotDL
+name: gYTMdl
 run-name: ${{ github.actor }}
 on:
   workflow_dispatch:
@@ -7,19 +7,18 @@ on:
         description: Set queries to download
         required: true
         type: string
-      codec:
-        description: Select downloaded audio format
+      itag:
+        description: Select downloaded audio itag
         required: false
         type: choice
         options:
-          - FLAC
-          - WAV
-          - OPUS
-          - OGG
-          - M4A
-          - MP3
-          - ORIGINAL
-        default: ORIGINAL
+          - '140'
+          - '139'
+          - '251'
+          - '250'
+          - '249'
+          - AUTO
+        default: AUTO
 permissions:
   actions: write
   contents: read
@@ -37,7 +36,7 @@ jobs:
       - name: Install python dependencies
         run: |
           python -m pip install -U pip
-          python -m pip install -U spotdl
+          python -m pip install -U gytmdl
       - name: Set up FFmpeg
         id: setup_ffmpeg
         uses: AnimMouse/setup-ffmpeg@v1
@@ -51,12 +50,10 @@ jobs:
       - name: Run command
         env:
           QUERY: ${{ inputs.query }}
-          CODEC: ${{ inputs.codec }}
-          CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          ITAG: ${{ inputs.itag }}
         shell: bash
         run: |
-          python -u -m modules.spotdl.run
+          python -u -m modules.gytmdl.run
       - name: Generate datetime codes
         id: dt_codes
         shell: bash
@@ -66,7 +63,7 @@ jobs:
         id: artifact
         uses: actions/upload-artifact@v4
         with:
-          name: spotdl-downloads-${{ steps.dt_codes.outputs.dtcode }}
+          name: gytmdl-downloads-${{ steps.dt_codes.outputs.dtcode }}
           path: music
           if-no-files-found: error
           retention-days: 7

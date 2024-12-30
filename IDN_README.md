@@ -60,6 +60,30 @@ Kenapa pilih **Arkheion** dibanding menjalankan aplikasi langsung di perangkatmu
 > [!TIP]
 > Untuk download lebih dari satu, kamu bisa pake '&&' (tanda petiknya gausah) di antara query.
 
+### gYTMdl
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/glomatico/gytmdl?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/glomatico/gytmdl)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/gytmdl.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/workflows/gytmdl.yml)
+
+| Platform      | Sumber     |
+| :------------ | :--------- |
+| YouTube Music | Direct[^1] |
+
+> [!TIP]
+> Untuk download lebih dari satu, kamu bisa pake '&&' (tanda petiknya gausah) di antara query.
+
+### Votify
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/glomatico/votify?style=for-the-badge&logo=github&logoColor=FFFFFF&label=Stars&labelColor=444444&color=222333)](https://github.com/glomatico/votify)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/mementomoryn/arkheion/votify.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=FFFFFF&label=workflows&labelColor=444444)](../../actions/workflows/votify.yml)
+
+| Platform | Sumber     |
+| :------- | :--------- |
+| Spotify  | Direct[^1] |
+
+> [!TIP]
+> Untuk download lebih dari satu, kamu bisa pake '&&' (tanda petiknya gausah) di antara query.
+
 ### TidalDLNG
 
 > Rusak, gak ada support buat custom path
