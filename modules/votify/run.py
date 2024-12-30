@@ -12,8 +12,8 @@ command = [
 ]
 
 if quality != 'AUTO':
-    command.append('--itag')
-    command.append(int(quality))
+    command.append('--audio-quality')
+    command.append(quality)
 
 query_untracked_list = query_untracked.split('&&')
 
