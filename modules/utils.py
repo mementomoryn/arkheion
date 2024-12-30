@@ -6,6 +6,7 @@ def panic(message: str):
     exit(1)
                 
 def run_command(command: list):
+    print("[INFO]" + " ".join(command))
     os.system(" ".join(command))
     
 def map_splice(str):
