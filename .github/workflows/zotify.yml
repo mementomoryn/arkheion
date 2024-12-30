@@ -1,0 +1,89 @@
+name: Votify
+run-name: ${{ github.actor }}
+on:
+  workflow_dispatch:
+    inputs:
+      query:
+        description: Set queries to download
+        required: true
+        type: string
+      format:
+        description: Select downloaded audio format
+        required: false
+        type: choice
+        options:
+          - 'AAC'
+          - 'FDK AAC'
+          - 'OGG'
+          - 'OPUS'
+          - 'VORBIS'
+          - 'M4A'
+          - 'MP3'
+          - AUTO
+        default: AUTO
+      quality:
+        description: Select downloaded audio quality
+        required: false
+        type: choice
+        options:
+          - 'HIGH'
+          - 'NORMAL'
+          - AUTO
+        default: AUTO
+permissions:
+  actions: write
+  contents: read
+jobs:
+  downloads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+      - name: Install python dependencies
+        run: |
+          python -m pip install -U pip
+          python -m pip install git+https://zotify.xyz/zotify/zotify.git
+      - name: Set up FFmpeg
+        id: setup_ffmpeg
+        uses: AnimMouse/setup-ffmpeg@v1
+        with:
+          version: release
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Decode credentials file
+        shell: bash
+        run: |
+          base64 -d <<< "${{ secrets.LIBRESPOT_AUTH_BASE64 }}" > credentials.json
+      - name: Run command
+        env:
+          QUERY: ${{ inputs.query }}
+          FORMAT: ${{ inputs.format }}
+          QUALITY: ${{ inputs.quality }}
+        shell: bash
+        run: |
+          python -u -m modules.zotify.run
+      - name: Generate datetime codes
+        id: dt_codes
+        shell: bash
+        run: |
+          echo "dtcode=$(date +%N%s | sed 's/0//g' | cut --complement -c 5-10 | cut -c 3-7)" >> $GITHUB_OUTPUT
+      - name: Upload downloads as artifact
+        id: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zotify-downloads-${{ steps.dt_codes.outputs.dtcode }}
+          path: music
+          if-no-files-found: error
+          retention-days: 7
+          include-hidden-files: true
+      - name: Print artifact info
+        shell: bash
+        run: |
+          echo "[INFO] artifact-id:\n"
+          echo "${{ steps.artifact.outputs.artifact-id }}"
+          echo "[INFO] artifact-url:\n"
+          echo "${{ steps.artifact.outputs.artifact-url }}"

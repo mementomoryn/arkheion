@@ -1,0 +1,2 @@
+pip
+zotify @ git+https://zotify.xyz/zotify/zotify.git

@@ -3,4 +3,5 @@ spotdl
 streamrip @ git+https://github.com/nathom/streamrip.git@dev
 gytmdl
 votify
+zotify @ git+https://zotify.xyz/zotify/zotify.git
 tidal-dl-ng
