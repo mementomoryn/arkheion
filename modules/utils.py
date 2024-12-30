@@ -7,6 +7,9 @@ def panic(message: str):
                 
 def run_command(command: list):
     os.system(" ".join(command))
+    
+def map_splice(str):
+    return '"' + str.strip() + '"'
 
 def set_github_output(name, value):
     with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:

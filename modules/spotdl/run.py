@@ -1,5 +1,5 @@
 import os
-from modules.utils import panic, run_command
+from modules.utils import panic, map_splice, run_command
 
 query = os.environ["QUERY"]
 query_untracked = query.split("si=")[0]
@@ -55,7 +55,7 @@ command.append('download')
 
 query_untracked_list = query_untracked.split('&&')
 
-command.append(' '.join('"' + map(str.strip, query_untracked_list) + '"'))
+command.append(' '.join(map(map_splice, query_untracked_list)))
 
 command.append('--output')
 command.append(output_path)
