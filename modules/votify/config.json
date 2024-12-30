@@ -5,7 +5,7 @@
 	"output_path": "music",
 	"cookies_path": "cookies.txt",
 	"wvd_path": "widevinecdm.wvd",
-	"audio_quality": "vorbis-medium",
+	"audio_quality": "aac-medium",
 	"cover_size": "extra-large",
 	"template_folder_album": "{artist}/{album} ({date})",
 	"template_folder_compilation": "{artist}/{album} ({date})",
