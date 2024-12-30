@@ -6,7 +6,7 @@ query_untracked = query.split("si=")[0]
 quality = os.environ["QUALITY"]
 
 command = [
-    'votify'
+    'votify',
     '--config-path',
     r"'modules/votify/config.json'"
 ]

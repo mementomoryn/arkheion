@@ -6,7 +6,7 @@ query_untracked = query.split("si=")[0]
 itag = os.environ["ITAG"]
 
 command = [
-    'gytmdl'
+    'gytmdl',
     '--config-path',
     r"'modules/votify/config.json'"
 ]
