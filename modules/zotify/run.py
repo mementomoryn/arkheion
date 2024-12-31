@@ -2,26 +2,19 @@ import os
 from modules.utils import panic, map_splice, run_command
 
 query = os.environ["QUERY"]
-query_untracked = query.split("si=")[0]
+query_untracked = query.split("?si=")[0]
 format = os.environ["FORMAT"]
 quality = os.environ["QUALITY"]
 
 command = [
     'zotify',
-    '--credentials-location',
-    r"'credentials.json'",
-    '--root-path',
-    'music',
-    '--root-podcast-path',
-    'music',
-    '--output',
-    r"'{artist}/{album} ({release_year})/{artist} - {song_name}.{ext}'",
-    '--skip-existing',
-    'False',
-    '--print-downloads',
-    'True',
-    '--bulk-wait-time',
-    '5'
+    '--credentials-location=credentials.json',
+    '--root-path=music',
+    '--root-podcast-path=music',
+    r'--output={artist}/{album} ({release_year})/{artist} - {song_name}.{ext}',
+    '--skip-existing=False',
+    '--print-downloads=True',
+    '--bulk-wait-time=5'
     
 ]
 

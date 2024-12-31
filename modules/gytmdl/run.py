@@ -2,7 +2,7 @@ import os
 from modules.utils import panic, map_splice, run_command
 
 query = os.environ["QUERY"]
-query_untracked = query.split("si=")[0]
+query_untracked = query.split("&si=")[0]
 itag = os.environ["ITAG"]
 
 command = [
