@@ -42,7 +42,6 @@ query_untracked_list = query_untracked.split('&&')
 command.append(' '.join(map(map_splice, query_untracked_list)))
 
 run_command(command)
-os.system('Voxark')
 
 # if os.path.exists("music") is False:
     # panic("[ERROR] Downloads folder does not exist")
