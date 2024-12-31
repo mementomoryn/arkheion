@@ -1,5 +1,6 @@
 {
 	"wait_interval": 5,
+	"log_level": "DEBUG",
 	"no_exceptions": false,
 	"output_path": "music",
 	"cookies_path": "cookies.txt",

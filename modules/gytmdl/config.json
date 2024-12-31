@@ -1,4 +1,5 @@
 {
+	"log_level": "DEBUG",
 	"print_exceptions": true,
 	"output_path": "music",
 	"cookies_path": "cookies.txt",
