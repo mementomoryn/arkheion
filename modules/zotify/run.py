@@ -8,10 +8,10 @@ quality = os.environ["QUALITY"]
 
 command = [
     'zotify',
-    '--credentials-location=credentials.json',
-    '--root-path=music',
-    '--root-podcast-path=music',
-    r'--output={artist}/{album} ({release_year})/{artist} - {song_name}.{ext}',
+    '--credentials-location="credentials.json"',
+    '--root-path="music"',
+    '--root-podcast-path="music"',
+    r'--output="{artist}/{album} ({release_year})/{artist} - {song_name}.{ext}"',
     '--skip-existing=False',
     '--print-downloads=True',
     '--bulk-wait-time=5'
