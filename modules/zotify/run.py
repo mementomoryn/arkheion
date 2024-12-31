@@ -18,17 +18,17 @@ command = [
     
 ]
 
-command.append('--download-format')
 if format != 'AUTO':
-    command.append(format.lower().replace(" ", "_"))
+    format_command = format.lower().replace(" ", "_")
 else:
-    command.append('aac')
+    format_command = 'aac'
+command.append(f'--download-format={format_command}')
     
-command.append('--download-quality')
 if quality != 'AUTO':
-    command.append(quality.lower().replace(" ", "_"))
+    quality_command = quality.lower().replace(" ", "_")
 else:
-    command.append('high')
+    quality_command = 'high'
+command.append(f'--download-quality={quality_command}')
 
 query_untracked_list = query_untracked.split('&&')
 
