@@ -17,11 +17,11 @@ command = [
     '--output',
     r"'{artist}/{album} ({release_year})/{artist} - {song_name}.{ext}'",
     '--skip-existing',
-    False,
+    'False',
     '--print-downloads',
-    True,
+    'True',
     '--bulk-wait-time',
-    5
+    '5'
     
 ]
 
